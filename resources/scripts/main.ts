@@ -1,3 +1,5 @@
+import "@/scss/stisla.scss";
+
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
 import { resolvePageComponent } from 'vite-plugin-laravel/inertia'
