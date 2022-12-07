@@ -5,6 +5,9 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@types/bootstrap": "^5.2.6",
+        "@types/jquery": "^3.5.14",
+        "@types/jquery.nicescroll": "^3.7.2",
         "@vitejs/plugin-vue": "^3.2.0",
         "@vue/compiler-sfc": "^3.2.45",
         "sass": "^1.56.1",
