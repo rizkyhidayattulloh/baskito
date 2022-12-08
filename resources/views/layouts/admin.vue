@@ -1,21 +1,21 @@
 <template>
   <div class="main-wrapper">
     <div class="navbar-bg"></div>
-    <nav-bar />
-    <side-bar />
+    <NavBar />
+    <SideBar />
 
     <div class="main-content">
       <slot />
     </div>
 
-    <main-footer />
+    <MainFooter />
   </div>
 </template>
 
 <script setup lang="ts">
-import NavBar from "@/views/components/admin/layout/nav-bar.vue";
-import SideBar from "@/views/components/admin/layout/side-bar.vue";
-import MainFooter from "@/views/components/admin/layout/main-footer.vue";
+import NavBar from "@/views/components/admin/layout/NavBar.vue";
+import SideBar from "@/views/components/admin/layout/SideBar.vue";
+import MainFooter from "@/views/components/admin/layout/MainFooter.vue";
 </script>
 
 <style scoped>
