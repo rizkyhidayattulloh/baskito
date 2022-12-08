@@ -1,5 +1,5 @@
 import { defineConfig, splitVendorChunkPlugin } from 'vite'
-import laravel from 'vite-plugin-laravel'
+import laravel, { callArtisan, findPhpPath } from 'vite-plugin-laravel'
 import vue from '@vitejs/plugin-vue'
 import inertia from './resources/scripts/vite/inertia-layout'
 
@@ -7,7 +7,19 @@ export default defineConfig({
 	plugins: [
 		inertia(),
 		vue(),
-		laravel(),
+		laravel({
+      watch: [
+        {
+          condition: (file) => file.includes("routes/"),
+          handle: () =>
+            callArtisan(
+              findPhpPath(),
+              "ziggy:generate",
+              "resources/scripts/utils/ziggy/index.js"
+            ),
+        },
+      ],
+    }),
     splitVendorChunkPlugin(),
 	],
 })
