@@ -41,6 +41,9 @@ class HandleInertiaRequests extends Middleware
             	'php' => PHP_VERSION,
             	'laravel' => \Illuminate\Foundation\Application::VERSION
             ],
+            'flash' => [
+                'message' => fn () => $request->session()->get('message'),
+            ],
         ]);
     }
 }

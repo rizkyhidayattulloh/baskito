@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -46,5 +48,35 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+
+        $this->renderable(function (Throwable $e, Request $request) {
+            return $this->inertiaRender($request, $e);
+        });
+    }
+
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable|\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface  $e
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function inertiaRender($request, Throwable $e)
+    {
+        if (! $e instanceof HttpException) {
+            $e = new HttpException(500, $e->getMessage());
+        }
+
+        if ($e->getStatusCode() === 419) {
+            return back()->with([
+                'message' => 'The page expired, please try again.',
+            ]);
+        }
+
+        if (in_array($e->getStatusCode(), [500, 503, 404, 403]) && !config('app.debug')) {
+            return inertia('admin.error', [
+                'status' => $e->getStatusCode(),
+            ])->toResponse($request)->setStatusCode($e->getStatusCode());
+        }
     }
 }
