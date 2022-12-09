@@ -6,7 +6,7 @@ export const Ziggy: Config;
 
 export type ZiggyRoute = typeof route;
 
-declare module 'vue' {
+declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     route: ZiggyRoute;
   }
