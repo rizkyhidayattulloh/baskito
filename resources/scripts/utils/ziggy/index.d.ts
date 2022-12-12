@@ -8,6 +8,6 @@ export type ZiggyRoute = typeof route;
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
-    route: ZiggyRoute;
+    $route: ZiggyRoute;
   }
 }

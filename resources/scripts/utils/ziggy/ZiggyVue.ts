@@ -10,7 +10,7 @@ export default {
         config: Config = options
       ) => ziggyRoute(name, params, absolute, config);
 
-      app.config.globalProperties.route = route as typeof ziggyRoute;
+      app.config.globalProperties.$route = route as typeof ziggyRoute;
 
       app.provide('route', route);
   },
