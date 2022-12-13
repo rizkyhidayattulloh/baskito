@@ -15,7 +15,7 @@ export default defineConfig({
             callArtisan(
               findPhpPath(),
               "ziggy:generate",
-              "resources/scripts/utils/ziggy/index.js"
+              "resources/scripts/utils/ziggy/index.ts"
             ),
         },
       ],

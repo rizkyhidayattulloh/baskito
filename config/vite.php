@@ -58,7 +58,7 @@ return [
     'commands' => [
         'artisan' => [
             'vite:tsconfig',
-            'ziggy:generate' => ["resources/scripts/utils/ziggy/index.js"]
+            'ziggy:generate' => ["resources/scripts/utils/ziggy/index.ts"]
             // 'typescript:generate'
         ],
         'shell' => [
