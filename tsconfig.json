@@ -13,7 +13,10 @@
             "dom"
         ],
         "types": [
-            "vite/client"
+            "vite/client",
+            "jquery",
+            "bootstrap",
+            "jquery.nicescroll"
         ],
         "baseUrl": ".",
         "paths": {

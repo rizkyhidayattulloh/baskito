@@ -9,12 +9,20 @@
             <div class="page-description">{{ description }}</div>
             <div class="page-search">
               <div class="mt-3">
-                <button type="button" class="btn btn-primary btn-lg text-uppercase" @click="goBack">Go Back</button>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-lg text-uppercase"
+                  @click="goBack"
+                >
+                  Go Back
+                </button>
               </div>
             </div>
           </div>
         </div>
-        <div class="simple-footer mt-5">Copyright &copy; Timedoor Indonesia 2022</div>
+        <div class="simple-footer mt-5">
+          Copyright &copy; Timedoor Indonesia 2022
+        </div>
       </div>
     </section>
   </div>
@@ -24,7 +32,7 @@
 import { Head } from "@inertiajs/inertia-vue3";
 import { computed } from "vue";
 
-const { status } = defineProps<{
+const props = defineProps<{
   status: number;
 }>();
 
@@ -35,7 +43,7 @@ let title = computed<string>(
       500: "500: Server Error",
       404: "404: Page Not Found",
       403: "403: Forbidden",
-    }[status] || "500: Server Error")
+    }[props.status] || "500: Server Error")
 );
 
 let description = computed<string>(
@@ -45,12 +53,12 @@ let description = computed<string>(
       500: "Whoops, something went wrong on our servers.",
       404: "Sorry, the page you are looking for could not be found.",
       403: "Sorry, you are forbidden from accessing this page.",
-    }[status] || "Whoops, something went wrong on our servers.")
+    }[props.status] || "Whoops, something went wrong on our servers.")
 );
 
 const goBack = () => {
   window.history.back();
-}
+};
 </script>
 
 <style scoped></style>

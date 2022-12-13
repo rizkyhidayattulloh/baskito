@@ -1,4 +1,4 @@
-/// <reference types="ziggy-js" />
+declare module "ziggy-js";
 
 import route, { Config } from "ziggy-js";
 

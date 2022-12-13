@@ -7,11 +7,11 @@ import { Ziggy } from "@/scripts/utils/ziggy";
 import ZiggyVue from "@/scripts/utils/ziggy/ZiggyVue";
 
 createInertiaApp({
-	resolve: (name) => resolvePageComponent(name, import.meta.glob('../views/pages/**/*.vue')),
-	setup({ el, app, props, plugin }) {
-		createApp({ render: () => h(app, props) })
-			.use(plugin)
+  resolve: (name) => resolvePageComponent(name, import.meta.glob('../views/pages/**/*.vue')),
+  setup({ el, app, props, plugin }) {
+    createApp({ render: () => h(app, props) })
+      .use(plugin)
       .use(ZiggyVue, Ziggy)
-			.mount(el)
-	},
+      .mount(el)
+  },
 })

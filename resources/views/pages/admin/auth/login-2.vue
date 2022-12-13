@@ -2,34 +2,65 @@
   <div id="app">
     <section class="section">
       <div class="d-flex flex-wrap align-items-stretch">
-        <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
+        <div
+          class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white"
+        >
           <div class="p-4 m-3">
-            <img src="@/images/logo-black.svg" alt="logo" width="150" class="mb-5 mt-2">
-            <h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">Timedoor</span></h4>
-            <p class="text-muted">Before you get started, you must login or register if you don't already have an account.</p>
+            <img
+              src="@/images/logo-black.svg"
+              alt="logo"
+              width="150"
+              class="mb-5 mt-2"
+            />
+            <h4 class="text-dark font-weight-normal">
+              Welcome to <span class="font-weight-bold">Timedoor</span>
+            </h4>
+            <p class="text-muted">
+              Before you get started, you must login or register if you don't
+              already have an account.
+            </p>
             <form method="POST" action="#">
               <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
-                <div class="invalid-feedback">
-                  Please fill in your email
-                </div>
+                <input
+                  id="email"
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  tabindex="1"
+                  required
+                  autofocus
+                />
+                <div class="invalid-feedback">Please fill in your email</div>
               </div>
 
               <div class="form-group">
                 <div class="d-block">
                   <label for="password" class="control-label">Password</label>
                 </div>
-                <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
-                <div class="invalid-feedback">
-                  please fill in your password
-                </div>
+                <input
+                  id="password"
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  tabindex="2"
+                  required
+                />
+                <div class="invalid-feedback">please fill in your password</div>
               </div>
 
               <div class="form-group">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
-                  <label class="custom-control-label" for="remember-me">Remember Me</label>
+                  <input
+                    id="remember-me"
+                    type="checkbox"
+                    name="remember"
+                    class="custom-control-input"
+                    tabindex="3"
+                  />
+                  <label class="custom-control-label" for="remember-me"
+                    >Remember Me</label
+                  >
                 </div>
               </div>
 
@@ -37,13 +68,18 @@
                 <a href="auth-forgot-password.html" class="float-left mt-3">
                   Forgot Password?
                 </a>
-                <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg btn-icon icon-right"
+                  tabindex="4"
+                >
                   Login
                 </button>
               </div>
 
               <div class="mt-5 text-center">
-                Don't have an account? <a href="auth-register.html">Create new one</a>
+                Don't have an account?
+                <a href="auth-register.html">Create new one</a>
               </div>
             </form>
 
@@ -57,17 +93,16 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" id="login-background">
-
-        </div>
+        <div
+          id="login-background"
+          class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom"
+        ></div>
       </div>
     </section>
   </div>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 #login-background {

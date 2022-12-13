@@ -1,8 +1,4 @@
-/// <reference types="jquery" />
-/// <reference types="bootstrap" />
-/// <reference types="jquery.nicescroll" />
-
-type StickyKitOptions =  {
+type StickyKitOptions = {
   /**
    * Boolean to enable or disable the ability of the sticky element to scroll
    * independently of the scrollbar when it’s taller than the viewport.
