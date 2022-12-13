@@ -8,7 +8,7 @@ Route::get('login', function () {
 
 Route::get('login-2', function () {
     return inertia('admin.auth.login-2');
-})->name('login');
+})->name('login-2');
 
 Route::get('/', function () {
     return inertia('admin.dashboard.index');

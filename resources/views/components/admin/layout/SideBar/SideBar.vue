@@ -26,10 +26,16 @@
           :active="false"
         >
           <SideBarLink
-            :href="$route('admin.dashboard')"
+            :href="$route('admin.login')"
             :active="false"
           >
-            Another Page
+            Login Page
+          </SideBarLink>
+          <SideBarLink
+            :href="$route('admin.login-2')"
+            :active="false"
+          >
+            Login Page 2
           </SideBarLink>
         </SideBarDropdown>
       </ul>
