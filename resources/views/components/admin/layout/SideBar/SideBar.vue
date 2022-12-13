@@ -1,0 +1,61 @@
+<template>
+  <div class="main-sidebar sidebar-style-2">
+    <aside id="sidebar-wrapper">
+      <div class="sidebar-brand">
+        <Link :href="$route('admin.dashboard')"
+          ><img src="@/images/logo-black.svg" alt="logo" class="w-75"
+        /></Link>
+      </div>
+      <div class="sidebar-brand sidebar-brand-sm">
+        <Link :href="$route('admin.dashboard')"
+          ><img src="@/images/logo-black-square.svg" alt="logo" class="w-50"
+        /></Link>
+      </div>
+      <ul class="sidebar-menu">
+        <SideBarHeader>Example</SideBarHeader>
+        <SideBarLink
+          icon="fas fa-fire"
+          :href="$route('admin.dashboard')"
+          :active="$route().current('admin.dashboard')"
+        >
+          Dashboard
+        </SideBarLink>
+        <SideBarDropdown
+          title="Other Page"
+          icon="fas fa-columns"
+          :active="false"
+        >
+          <SideBarLink
+            :href="$route('admin.dashboard')"
+            :active="false"
+          >
+            Another Page
+          </SideBarLink>
+        </SideBarDropdown>
+      </ul>
+    </aside>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { nextTick, onMounted } from "vue";
+import initStisla from "@/scripts/utils/stisla";
+import SideBarLink from "./SideBarLink.vue";
+import SideBarHeader from "./SideBarHeader.vue";
+import SideBarDropdown from "./SideBarDropdown.vue";
+import { Link } from "@inertiajs/inertia-vue3";
+
+onMounted(() => {
+  nextTick(() => {
+    initStisla();
+  });
+});
+
+import.meta.hot?.accept(() => {
+  nextTick(() => {
+    initStisla();
+  });
+});
+</script>
+
+<style scoped></style>

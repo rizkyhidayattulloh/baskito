@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import NavBar from "@/views/components/admin/layout/NavBar.vue";
-import SideBar from "@/views/components/admin/layout/SideBar.vue";
+import SideBar from "@/views/components/admin/layout/SideBar/SideBar.vue";
 import MainFooter from "@/views/components/admin/layout/MainFooter.vue";
 </script>
 
