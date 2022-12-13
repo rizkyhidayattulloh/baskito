@@ -187,7 +187,9 @@
             src="https://ui-avatars.com/api/?name=Timedoor+Indonesia&background=70b5ff"
             class="rounded-circle mr-1"
           />
-          <div class="d-sm-none d-lg-inline-block">Hi, Timeodor Indonesia</div></a
+          <div class="d-sm-none d-lg-inline-block">
+            Hi, {{ user?.name || "User" }}
+          </div></a
         >
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-title">Logged in 5 min ago</div>
@@ -201,7 +203,11 @@
             <i class="fas fa-cog"></i> Settings
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item has-icon text-danger">
+          <a
+            href="#"
+            class="dropdown-item has-icon text-danger"
+            @click.prevent="logout"
+          >
             <i class="fas fa-sign-out-alt"></i> Logout
           </a>
         </div>
@@ -210,6 +216,18 @@
   </nav>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute } from "@/scripts/utils/ziggy/useRoute";
+import { useForm, usePage } from "@inertiajs/inertia-vue3";
+import { computed } from "vue";
+
+const { route } = useRoute();
+
+const logout = () => {
+  useForm({}).delete(route("admin.logout"));
+};
+
+const user = computed(() => usePage().props.value.auth?.user);
+</script>
 
 <style scoped></style>

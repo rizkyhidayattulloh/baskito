@@ -14,28 +14,30 @@
               <div class="card-header"><h4>Login</h4></div>
 
               <div class="card-body">
-                <form method="POST" action="#">
+                <form method="POST" action="#" @submit.prevent="submit">
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input
                       id="email"
+                      v-model="loginForm.email"
                       type="email"
                       class="form-control"
+                      :class="{ 'is-invalid': loginForm.errors.email }"
                       name="email"
                       tabindex="1"
                       required
                       autofocus
                     />
-                    <div class="invalid-feedback">
-                      Please fill in your email
+                    <div v-if="loginForm.errors.email" class="invalid-feedback">
+                      {{ loginForm.errors.email }}
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="d-block">
-                      <label for="password" class="control-label"
-                        >Password</label
-                      >
+                      <label for="password" class="control-label">
+                        Password
+                      </label>
                       <div class="float-right">
                         <a href="auth-forgot-password.html" class="text-small">
                           Forgot Password?
@@ -44,29 +46,28 @@
                     </div>
                     <input
                       id="password"
+                      v-model="loginForm.password"
                       type="password"
                       class="form-control"
                       name="password"
                       tabindex="2"
                       required
                     />
-                    <div class="invalid-feedback">
-                      please fill in your password
-                    </div>
                   </div>
 
                   <div class="form-group">
                     <div class="custom-control custom-checkbox">
                       <input
                         id="remember-me"
+                        v-model="loginForm.remember"
                         type="checkbox"
                         name="remember"
                         class="custom-control-input"
                         tabindex="3"
                       />
-                      <label class="custom-control-label" for="remember-me"
-                        >Remember Me</label
-                      >
+                      <label class="custom-control-label" for="remember-me">
+                        Remember Me
+                      </label>
                     </div>
                   </div>
 
@@ -95,6 +96,21 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute } from '@/scripts/utils/ziggy/useRoute';
+import { useForm } from '@inertiajs/inertia-vue3';
+
+const { route } = useRoute();
+const loginForm = useForm({
+  email: '',
+  password: '',
+  remember: false,
+});
+const submit = () => {
+  loginForm.post(route('admin.login'), {
+    onFinish: () => loginForm.reset('password'),
+  });
+};
+</script>
 
 <style scoped></style>
