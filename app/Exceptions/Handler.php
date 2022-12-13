@@ -48,10 +48,22 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
 
-        $this->renderable(function (Throwable $e, Request $request) {
+    /**
+     * Render a default exception response if any.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $e
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    protected function renderExceptionResponse($request, Throwable $e)
+    {
+        if (! $request->is('api/*')) {
             return $this->inertiaRender($request, $e);
-        });
+        }
+
+        return parent::renderExceptionResponse($request, $e);
     }
 
     /**
