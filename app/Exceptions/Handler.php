@@ -59,11 +59,13 @@ class Handler extends ExceptionHandler
      */
     protected function renderExceptionResponse($request, Throwable $e)
     {
+        $response = parent::renderExceptionResponse($request, $e);
+
         if (! $request->is('api/*')) {
-            return $this->inertiaRender($request, $e);
+            return $this->inertiaRender($request, $e) ?: $response;
         }
 
-        return parent::renderExceptionResponse($request, $e);
+        return $response;
     }
 
     /**
@@ -71,21 +73,25 @@ class Handler extends ExceptionHandler
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Throwable|\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface  $e
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\Response|null
      */
-    public function inertiaRender($request, Throwable $e)
+    public function inertiaRender(Request $request, Throwable $e)
     {
-        if (! $e instanceof HttpException) {
-            $e = new HttpException(500, $e->getMessage());
-        }
-
-        if ($e->getStatusCode() === 419) {
+        if ($e instanceof HttpException && $e->getStatusCode() === 419) {
             return back()->with([
                 'message' => 'The page expired, please try again.',
             ]);
         }
 
-        if (in_array($e->getStatusCode(), [500, 503, 404, 403]) && !config('app.debug')) {
+        if (config('app.debug')) {
+            return null;
+        }
+
+        if (! $e instanceof HttpException) {
+            $e = new HttpException(500, $e->getMessage());
+        }
+
+        if (in_array($e->getStatusCode(), [500, 503, 404, 403])) {
             return inertia('admin.error', [
                 'status' => $e->getStatusCode(),
             ])->toResponse($request)->setStatusCode($e->getStatusCode());
