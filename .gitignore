@@ -4,6 +4,7 @@
 /public/hot
 /public/storage
 /storage/*.key
+/storage/debugbar
 /vendor
 /resources/scripts/utils/ziggy/index.js
 /resources/scripts/utils/ziggy/index.ts
