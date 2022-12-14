@@ -53,17 +53,12 @@ class LoginController extends Controller
             return to_route('admin.login');
         }
 
-        return parent::logout($request);
-    }
+        $this->guard()->logout();
 
-    /**
-     * The user has logged out of the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return mixed
-     */
-    protected function loggedOut(Request $request)
-    {
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
         return to_route('admin.login');
     }
 }
