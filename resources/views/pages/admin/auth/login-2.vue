@@ -1,4 +1,6 @@
 <template>
+  <Head title="Login"/>
+
   <div id="app">
     <section class="section">
       <div class="d-flex flex-wrap align-items-stretch">
@@ -110,7 +112,7 @@
 
 <script setup lang="ts">
 import { useRoute } from '@/scripts/utils/ziggy/useRoute';
-import { useForm } from '@inertiajs/inertia-vue3';
+import { Head, useForm } from '@inertiajs/inertia-vue3';
 
 const { route } = useRoute();
 const loginForm = useForm({
