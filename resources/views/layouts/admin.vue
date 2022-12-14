@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import NavBar from "@/views/components/admin/layout/NavBar/NavBar.vue";
-import SideBar from "@/views/components/admin/layout/SideBar/SideBar.vue";
-import MainFooter from "@/views/components/admin/layout/MainFooter.vue";
+import NavBar from "@components/admin/layout/NavBar/NavBar.vue";
+import SideBar from "@components/admin/layout/SideBar/SideBar.vue";
+import MainFooter from "@components/admin/layout/MainFooter.vue";
 import { provide, readonly, ref } from "vue";
 
 let wrapper = ref(false);

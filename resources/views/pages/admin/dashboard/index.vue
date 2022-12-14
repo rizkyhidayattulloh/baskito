@@ -6,9 +6,9 @@
 </template>
 
 <script setup lang="ts">
-import PageDescription from "@/views/components/admin/layout/Page/PageDescription.vue";
-import PageSection from "@/views/components/admin/layout/Page/PageSection.vue";
-import PageTitle from "@/views/components/admin/layout/Page/PageTitle.vue";
+import PageDescription from "@components/admin/layout/Page/PageDescription.vue";
+import PageSection from "@components/admin/layout/Page/PageSection.vue";
+import PageTitle from "@components/admin/layout/Page/PageTitle.vue";
 </script>
 
 <style scoped></style>

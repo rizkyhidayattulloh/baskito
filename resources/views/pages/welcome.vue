@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import LaravelLogo from '@/views/components/laravel-logo.vue'
-import InertiaLogo from '@/views/components/inertia-logo.vue'
-import ResourceBlock from '@/views/components/resource-block.vue'
+import LaravelLogo from '@components/laravel-logo.vue'
+import InertiaLogo from '@components/inertia-logo.vue'
+import ResourceBlock from '@components/resource-block.vue'
 
 defineProps<{
 	versions: {

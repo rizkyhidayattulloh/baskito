@@ -22,6 +22,9 @@
         "paths": {
             "@/*": [
                 "resources/*"
+            ],
+            "@components/*": [
+                "resources/views/components/*"
             ]
         }
     },
