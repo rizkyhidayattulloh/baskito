@@ -57,11 +57,13 @@ onMounted(() => {
   });
 });
 
-import.meta.hot?.accept(() => {
-  nextTick(() => {
-    initStisla();
+if (import.meta.hot) {
+  import.meta.hot.accept(() => {
+    nextTick(() => {
+      initStisla();
+    });
   });
-});
+}
 </script>
 
 <style scoped></style>
