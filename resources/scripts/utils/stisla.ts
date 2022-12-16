@@ -351,14 +351,14 @@ export default function initStisla(
         me.addClass("btn-primary");
         me.html(follow_text);
 
-        eval(me.data("unfollow-action"));
+        Function(me.data("unfollow-action"))();
       } else {
         me.removeClass("btn-primary");
         me.addClass("btn-danger");
         me.addClass("following-btn");
         me.html(unfollow_text);
 
-        eval(me.data("follow-action"));
+        Function(me.data("follow-action"))();
       }
       return false;
     });
