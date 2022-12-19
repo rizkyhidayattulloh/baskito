@@ -1,66 +1,83 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Baskito
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## About Baskito
 
-## About Laravel
+Baskito stands for Backend Starter Kit Task Force that [Timedoor Backend Developer](https://github.com/backend-timedoor) built to improve development time for the admin page with a standardized tech stack and components built on:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Laravel 9](https://laravel.com/docs/9.x).
+- [Vue 3](https://vuejs.org/guide/introduction.html).
+- [Inertia](https://inertiajs.com).
+- [Bootstrap 4](https://getbootstrap.com/docs/4.6/getting-started/introduction).
+- [Stisla](https://github.com/stisla/stisla).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Prerequisites
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Before starting a Baskito project, you need to install this program on your computer to match Baskito tech stack.
 
-## Learning Laravel
+- ```php : ^8.0.2``` [docs](https://www.php.net)
+- ```composer : ^2.0.0``` [docs](https://getcomposer.org/doc)
+- ```nodejs : ^16.0.0``` [docs](https://nodejs.org)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Dependencies
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Besides the package that is already built-in with Laravel, here's list of installed dependencies within this project.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- ```inertiajs/inertia-laravel : ^0.6.4``` [docs](https://inertiajs.com)
+- ```innocenzi/laravel-vite: 0.2.*``` [docs](https://laravel-vite.dev/guide/extra-topics/inertia.html)
+- ```laravel/ui: ^4.1``` [docs](https://github.com/laravel/ui)
+- ```tightenco/ziggy: ^1.5``` [docs](https://github.com/tighten/ziggy)
+- ```barryvdh/laravel-debugbar: ^3.7``` [docs](https://github.com/barryvdh/laravel-debugbar)
 
-## Laravel Sponsors
+## Installation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### PHP
 
-### Premium Partners
+First, you need to install all PHP package requirements.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```bash
+composer install
+```
 
-## Contributing
+Copy and paste the `.env.example` file into `.env` this project and generate `APP_KEY`.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+cp .env.example .env
 
-## Code of Conduct
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Create and set your database configuration in the `.env` file then run the database migration and seeder.
 
-## Security Vulnerabilities
+```bash
+php artisan migrate --seed
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Javascript
 
-## License
+Install Javascript package dependencies.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+npm install
+```
+
+Run Vite for development.
+
+```bash
+npm run dev
+```
+
+Build Vite.
+
+```bash
+npm run build
+```
+
+Set `DEV_SERVER_URL` setting in `.env` to match your local project URL and add a port for Vite to it. If you use HTTPS for `DEV_SERVER_URL` read the instruction below.
+
+If you're using Laragon and place it not in the default folder (`C:\laragon`), you must specify the SSL key and certificate file path in the `DEV_SERVER_KEY` and `DEV_SERVER_CERT` settings in the `.env`
+
+```.env
+DEV_SERVER_URL=https://baskito.test:4000
+DEV_SERVER_KEY=D:\laragon\etc\ssl\laragon.key
+DEV_SERVER_CERT=D:\laragon\etc\ssl\laragon.crt
+```
