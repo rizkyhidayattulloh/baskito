@@ -12,7 +12,7 @@ Baskito stands for Backend Starter Kit Task Force that [Timedoor Backend Develop
 
 ## Prerequisites
 
-Before starting a Baskito project, you need to install this program on your computer to match Baskito tech stack.
+Before starting a Baskito project, you need to install this program on your computer to match the Baskito tech stack.
 
 - ```php : ^8.0.2``` [docs](https://www.php.net)
 - ```composer : ^2.0.0``` [docs](https://getcomposer.org/doc)
@@ -20,13 +20,38 @@ Before starting a Baskito project, you need to install this program on your comp
 
 ## Dependencies
 
-Besides the package that is already built-in with Laravel, here's list of installed dependencies within this project.
+Besides the package that is already built-in with Laravel, here's the list of installed dependencies within this project.
+
+### PHP
 
 - ```inertiajs/inertia-laravel : ^0.6.4``` [docs](https://inertiajs.com)
 - ```innocenzi/laravel-vite: 0.2.*``` [docs](https://laravel-vite.dev/guide/extra-topics/inertia.html)
 - ```laravel/ui: ^4.1``` [docs](https://github.com/laravel/ui)
 - ```tightenco/ziggy: ^1.5``` [docs](https://github.com/tighten/ziggy)
 - ```barryvdh/laravel-debugbar: ^3.7``` [docs](https://github.com/barryvdh/laravel-debugbar)
+
+### Javascript
+
+- ```@types/bootstrap: ^5.2.6``` [docs](https://github.com/DefinitelyTyped/DefinitelyTyped)
+- ```@types/jquery: ^3.5.14``` [docs](https://github.com/DefinitelyTyped/DefinitelyTyped)
+- ```@types/ziggy-js: ^1.3.2``` [docs](https://github.com/DefinitelyTyped/DefinitelyTyped)
+- ```@typescript-eslint/eslint-plugin: ^5.46.1``` [docs](https://typescript-eslint.io)
+- ```@typescript-eslint/parser: ^5.46.1``` [docs](https://typescript-eslint.io)
+- ```@vitejs/plugin-vue: ^3.2.0``` [docs](https://github.com/vitejs/vite-plugin-vue/blob/main/packages/plugin-vue/README.md)
+- ```@vue/compiler-sfc: ^3.2.45``` [docs](https://github.com/vuejs/core/tree/main/packages/compiler-sfc#readme)
+- ```eslint: ^8.29.0``` [docs](https://eslint.org)
+- ```eslint-config-prettier: ^8.5.0``` [docs](https://github.com/prettier/eslint-config-prettier)
+- ```eslint-plugin-vue: ^9.8.0``` [docs](https://eslint.vuejs.org)
+- ```prettier: ^2.8.1``` [docs](https://prettier.io)
+- ```sass: ^1.56.1``` [docs](https://sass-lang.com)
+- ```vite: ^3.2.5``` [docs](https://vitejs.dev)
+- ```vite-plugin-laravel: ^3.2.5``` [docs](https://laravel-vite.dev)
+- ```vue-eslint-parser: ^9.1.0``` [docs](https://github.com/vuejs/vue-eslint-parser)
+- ```@inertiajs/inertia: ^0.11.1``` [docs](https://inertiajs.com)
+- ```@inertiajs/inertia-vue3: ^0.6.0``` [docs](https://inertiajs.com)
+- ```@inertiajs/progress: ^0.2.7``` [docs](https://inertiajs.com/progress-indicators#top)
+- ```vue: ^3.2.36``` [docs](https://vuejs.org/guide/introduction.html)
+- ```ziggy-js: ^1.5.0``` [docs](https://github.com/tighten/ziggy)
 
 ## Installation
 
@@ -72,12 +97,21 @@ Build Vite.
 npm run build
 ```
 
-Set `DEV_SERVER_URL` setting in `.env` to match your local project URL and add a port for Vite to it. If you use HTTPS for `DEV_SERVER_URL` read the instruction below.
+## Settings
 
-If you're using Laragon and place it not in the default folder (`C:\laragon`), you must specify the SSL key and certificate file path in the `DEV_SERVER_KEY` and `DEV_SERVER_CERT` settings in the `.env`
+### Vite
+
+Set `DEV_SERVER_URL` setting in `.env` to match your local project URL and add a port for Vite to it.
 
 ```.env
-DEV_SERVER_URL=https://baskito.test:4000
-DEV_SERVER_KEY=D:\laragon\etc\ssl\laragon.key
-DEV_SERVER_CERT=D:\laragon\etc\ssl\laragon.crt
+DEV_SERVER_URL=http://baskito.test:4000
+```
+
+### Vite SSL
+
+If you use HTTPS for `DEV_SERVER_URL` while using Laragon that is not placed in the default folder (`C:\laragon`) or somehow have an SSL error, you must specify the SSL key and certificate file path in the `DEV_SERVER_KEY` and `DEV_SERVER_CERT` settings in the `.env`.
+
+```.env
+DEV_SERVER_KEY="D:\\laragon\\etc\\ssl\\laragon.key"
+DEV_SERVER_CERT="D:\\laragon\\etc\\ssl\\laragon.crt"
 ```
