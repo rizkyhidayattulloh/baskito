@@ -3,8 +3,10 @@ declare module "ziggy-js";
 import { Config, RouteParamsWithQueryOverload, RouteParam, Router } from "ziggy-js";
 import { Ziggy } from ".";
 
+export type RouteName = keyof (typeof Ziggy)['routes'];
+
 declare function route(
-  name: keyof (typeof Ziggy)['routes'],
+  name: RouteName,
   params?: RouteParamsWithQueryOverload | RouteParam,
   absolute?: boolean,
   config?: Config,
