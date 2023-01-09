@@ -16,6 +16,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" integrity="sha512-zMfrMAZYAlNClPKjN+JMuslK/B6sPM09BGvrWlW+cymmPmsUT1xJF3P4kxI3lOh9zypakSgWaTpY6vDJY/3Dig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha512-MAhdSIQcK5z9i33WN0KzveJUhM2852CJ1lJp4o60cXhQT20Y3friVRdeZ5TEWz4Pi+nvaQqnIqWJJw4HVTKg1Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 		@vite
         @inertiaHead
