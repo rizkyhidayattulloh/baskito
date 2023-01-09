@@ -35,6 +35,7 @@ Besides the package that is already built-in with Laravel, here's the list of in
 - ```@types/bootstrap: ^5.2.6``` [docs](https://github.com/DefinitelyTyped/DefinitelyTyped)
 - ```@types/jquery: ^3.5.14``` [docs](https://github.com/DefinitelyTyped/DefinitelyTyped)
 - ```@types/ziggy-js: ^1.3.2``` [docs](https://github.com/DefinitelyTyped/DefinitelyTyped)
+- ```@types/select2: ^4.0.56``` [docs](https://github.com/DefinitelyTyped/DefinitelyTyped)
 - ```@typescript-eslint/eslint-plugin: ^5.46.1``` [docs](https://typescript-eslint.io)
 - ```@typescript-eslint/parser: ^5.46.1``` [docs](https://typescript-eslint.io)
 - ```@vitejs/plugin-vue: ^3.2.0``` [docs](https://github.com/vitejs/vite-plugin-vue/blob/main/packages/plugin-vue/README.md)
