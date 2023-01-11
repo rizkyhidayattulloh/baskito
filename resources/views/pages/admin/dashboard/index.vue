@@ -36,7 +36,7 @@
                 placeholder: 'This is placeholder',
                 allowClear: true
               }"
-              multiple="multiple">
+              multiple>
             </Select2>
           </div>
         </div>
@@ -49,16 +49,17 @@
 import PageDescription from "@components/admin/layout/Page/PageDescription.vue";
 import PageSection from "@components/admin/layout/Page/PageSection.vue";
 import PageTitle from "@components/admin/layout/Page/PageTitle.vue";
-import Select2 from "@components/select/Select2.vue";
+import Select2 from "@components/ui/Select/Select2.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { ref, watch } from 'vue';
 
-const selectDefault = ref();
+const selectDefault = ref(2);
 
 const options = ref([
   {id: 1, text: "Option 1"},
   {id: 2, text: "Option 2"},
-  {id: 3, text: "Option 3"}
+  {id: 3, text: "Option 3"},
+  {id: 4, text: "Option 4"}
 ]);
 
 watch(selectDefault, (newSelectDefault) => {

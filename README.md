@@ -2,13 +2,13 @@
 
 ## About Baskito
 
-Baskito stands for Backend Starter Kit Task Force that [Timedoor Backend Developer](https://github.com/backend-timedoor) built to improve development time for the admin page with a standardized tech stack and components built on:
+Baskito stands for Backend Starter Kit Task Force that [Timedoor Backend Developer](https://github.com/backend-timedoor) built to improve development time for the admin page with a standardized tech stack and components built on [Laravel 9](https://laravel.com/docs/9.x) :
 
-- [Laravel 9](https://laravel.com/docs/9.x).
-- [Vue 3](https://vuejs.org/guide/introduction.html).
-- [Inertia](https://inertiajs.com).
-- [Bootstrap 4](https://getbootstrap.com/docs/4.6/getting-started/introduction).
-- [Stisla](https://github.com/stisla/stisla).
+- [Laravel 9](https://laravel.com/docs/9.x)
+- [Vue 3](https://vuejs.org/guide/introduction.html)
+- [Inertia](https://inertiajs.com)
+- [Bootstrap 4](https://getbootstrap.com/docs/4.6/getting-started/introduction)
+- [Stisla](https://github.com/stisla/stisla)
 
 ## Prerequisites
 
