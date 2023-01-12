@@ -18,6 +18,18 @@
             <button class="btn btn-primary" data-toggle="modal" data-target="#defaultModal">Show Default Modal</button>
           </div>
           <div class="form-group">
+            <p class="mb-2">Centered Modal</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#centeredModal">Show Centered Modal</button>
+          </div>
+          <div class="form-group">
+            <p class="mb-2">Without Animation Modal</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#withoutAnimationModal">Show Without Animation Modal</button>
+          </div>
+          <div class="form-group">
+            <p class="mb-2">Sized Modal</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#sizedModal">Show Sized Modal</button>
+          </div>
+          <div class="form-group">
             <p class="mb-2">Custom Naming Modal</p>
             <button class="btn btn-primary" data-toggle="modal" data-target="#customNamingModal">Show Custom Naming Modal</button>
           </div>
@@ -32,6 +44,18 @@
   
   <Teleport to="body">
     <Modal title="Default Modal" id="defaultModal" @submit="submit">
+      <p>Modal body goes here.</p>
+    </Modal>
+
+    <Modal title="Centered Modal" id="centeredModal" :is-center="true" @submit="submit">
+      <p>Modal body goes here.</p>
+    </Modal>
+
+    <Modal title="Without Animation Modal" id="withoutAnimationModal" :with-fade="false" @submit="submit">
+      <p>Modal body goes here.</p>
+    </Modal>
+
+    <Modal title="Sized Modal" id="sizedModal" size="lg" @submit="submit">
       <p>Modal body goes here.</p>
     </Modal>
 
