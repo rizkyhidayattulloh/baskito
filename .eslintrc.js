@@ -1,13 +1,13 @@
 module.exports = {
   env: {
     node: true,
-    "vue/setup-compiler-macros": true,
+    "vue/setup-compiler-macros": true
   },
   extends: [
     "eslint:recommended",
     "plugin:vue/vue3-recommended",
     "prettier",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   rules: {
     // override/add rules settings here, such as:
@@ -25,8 +25,8 @@ module.exports = {
       // Script parser for vue directives (e.g. `v-if=` or `:attribute=`)
       // and vue interpolations (e.g. `{{variable}}`).
       // If not specified, the parser determined by `<script lang ="...">` is used.
-      "<template>": "espree",
+      "<template>": "espree"
     },
-    sourceType: "module",
-  },
+    sourceType: "module"
+  }
 };
