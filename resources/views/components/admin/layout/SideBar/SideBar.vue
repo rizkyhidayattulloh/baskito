@@ -16,7 +16,7 @@
         <SideBarLink
           icon="fas fa-fire"
           :href="$route('admin.dashboard')"
-          :active="$route().current('admin.dashboard')"
+          :active="routeIs('admin.dashboard')"
         >
           Dashboard
         </SideBarLink>
@@ -50,6 +50,9 @@ import SideBarLink from "./SideBarLink.vue";
 import SideBarHeader from "./SideBarHeader.vue";
 import SideBarDropdown from "./SideBarDropdown.vue";
 import { Link } from "@inertiajs/inertia-vue3";
+import { useRoute } from "@/scripts/utils/ziggy/useRoute";
+
+const { routeIs } = useRoute();
 
 onMounted(() => {
   nextTick(() => {
@@ -57,11 +60,13 @@ onMounted(() => {
   });
 });
 
-import.meta.hot?.accept(() => {
-  nextTick(() => {
-    initStisla();
+if (import.meta.hot) {
+  import.meta.hot.accept(() => {
+    nextTick(() => {
+      initStisla();
+    });
   });
-});
+}
 </script>
 
 <style scoped></style>

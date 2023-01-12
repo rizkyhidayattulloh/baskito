@@ -25,7 +25,7 @@ const props = withDefaults(
   defineProps<{
     header: string;
     backLink?: string;
-    fullWidth: boolean;
+    fullWidth?: boolean;
   }>(),
   {
     backLink: undefined,
