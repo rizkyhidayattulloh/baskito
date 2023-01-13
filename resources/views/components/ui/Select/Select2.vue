@@ -21,7 +21,6 @@
     }
   );
 
-
   const emit = defineEmits<{
     (e: 'update:modelValue', value: SelectValue | undefined): void
   }>();
@@ -48,9 +47,7 @@
       }
       createSelect2();
     },
-    {
-      deep: true
-    }
+    { deep: true }
   );
 
   function createSelect2() {
@@ -61,11 +58,12 @@
           emit('update:modelValue', value);
 
           if (Array.isArray(value)) {
+            // Helping CSS to know if multiple select is filled with options
             const container = $(root.value).data('select2').$container;
             if (value.length) {
-              container.find('.selection').addClass('filled'); 
+              container.find('.select2-selection--multiple').addClass('select2-selection--filled'); 
             } else {
-              container.find('.selection').removeClass('filled');
+              container.find('.select2-selection--multiple').removeClass('select2-selection--filled');
             }
           }
       });
@@ -103,12 +101,12 @@
 }
 
 /* Update select2 multiple search height */
-.selection.filled .select2-search__field {
+.select2-selection--multiple.select2-selection--filled .select2-search__field {
   height: 25px !important;
 }
 
 /* Update select2 multiple tag padding */
-.selection.filled .select2-selection--multiple .select2-selection__rendered {
+.select2-selection--multiple.select2-selection--filled .select2-selection__rendered {
   padding-left: 0px !important;
 }
 
