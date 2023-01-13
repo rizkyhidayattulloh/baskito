@@ -1,6 +1,6 @@
 <template>
   <div class="modal" :class="{'fade': withFade}" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog" :class="{'modal-dialog-centered': isCenter, [modalSizeClass]: true}" role="document">
+    <div class="modal-dialog" :class="{'modal-dialog-centered': isCenter, [modalSizeClass]: modalSizeClass ? true : false}" role="document">
       <div class="modal-content">
         <div class="modal-header" v-if="$slots.header">
           <slot name="header"></slot>
@@ -48,6 +48,9 @@
   );
 
   const modalSizeClass = computed(() => {
-    return `modal-${props.size}`;
+    if (props.size) {
+      return `modal-${props.size}`;
+    }
+    return '';
   })
 </script>
