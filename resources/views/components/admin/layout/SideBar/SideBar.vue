@@ -20,6 +20,13 @@
         >
           Dashboard
         </SideBarLink>
+        <SideBarLink
+          icon="fas fa-list"
+          :href="$route('admin.select2')"
+          :active="routeIs('admin.select2')"
+        >
+          Select2
+        </SideBarLink>
         <SideBarDropdown
           title="Other Page"
           icon="fas fa-columns"
