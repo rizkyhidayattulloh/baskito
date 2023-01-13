@@ -3,7 +3,7 @@
 
   <PageSection header="Modal Page" :back-link="$route('admin.modal')">
     <PageTitle>Modal</PageTitle>
-    <PageDescription>Description for the page.</PageDescription>
+    <PageDescription>Modal component usage example.</PageDescription>
   </PageSection>
 
   <div class="row">
