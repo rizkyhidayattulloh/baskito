@@ -27,6 +27,13 @@
         >
           Select2
         </SideBarLink>
+        <SideBarLink
+          icon="fas fa-window-maximize"
+          :href="$route('admin.modal')"
+          :active="routeIs('admin.modal')"
+        >
+          Modal
+        </SideBarLink>
         <SideBarDropdown
           title="Other Page"
           icon="fas fa-columns"

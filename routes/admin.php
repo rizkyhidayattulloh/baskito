@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('select2', function () {
     return inertia('admin.select2.index');
 })->name('select2');
+
+Route::get('modal', function () {
+    return inertia('admin.modal.index');
+})->name('modal');
