@@ -4,66 +4,66 @@
   <PageSection header="Modal Page" :back-link="$route('admin.modal')">
     <PageTitle>Modal</PageTitle>
     <PageDescription>Modal component usage example.</PageDescription>
-  </PageSection>
 
-  <div class="row">
-    <div class="col-12 col-md-6 col-lg-6">
-      <div class="card">
-        <div class="card-header">
-          <h4>Modal</h4>
-        </div>
-        <div class="card-body">
-          <div class="form-group">
-            <p class="mb-2">Default Modal</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#defaultModal">Show Default Modal</button>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <h4>Modal</h4>
           </div>
-          <div class="form-group">
-            <p class="mb-2">Centered Modal</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#centeredModal">Show Centered Modal</button>
-          </div>
-          <div class="form-group">
-            <p class="mb-2">Without Animation Modal</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#withoutAnimationModal">Show Without Animation Modal</button>
-          </div>
-          <div class="form-group">
-            <p class="mb-2">Sized Modal</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#sizedModal">Show Sized Modal</button>
-          </div>
-          <div class="form-group">
-            <p class="mb-2">Custom Naming Modal</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#customNamingModal">Show Custom Naming Modal</button>
-          </div>
-          <div class="form-group">
-            <p class="mb-2">Custom Template Modal</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#customTemplateModal">Show Custom Template Modal</button>
+          <div class="card-body">
+            <div class="form-group">
+              <p class="mb-2">Default Modal</p>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#defaultModal">Show Default Modal</button>
+            </div>
+            <div class="form-group">
+              <p class="mb-2">Centered Modal</p>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#centeredModal">Show Centered Modal</button>
+            </div>
+            <div class="form-group">
+              <p class="mb-2">Without Animation Modal</p>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#withoutAnimationModal">Show Without Animation Modal</button>
+            </div>
+            <div class="form-group">
+              <p class="mb-2">Sized Modal</p>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#sizedModal">Show Sized Modal</button>
+            </div>
+            <div class="form-group">
+              <p class="mb-2">Custom Naming Modal</p>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#customNamingModal">Show Custom Naming Modal</button>
+            </div>
+            <div class="form-group">
+              <p class="mb-2">Custom Template Modal</p>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#customTemplateModal">Show Custom Template Modal</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </PageSection>
   
   <Teleport to="body">
-    <Modal title="Default Modal" id="defaultModal" @submit="submit">
+    <BaseModal title="Default Modal" id="defaultModal" @submit="submit">
       <p>Modal body goes here.</p>
-    </Modal>
+    </BaseModal>
 
-    <Modal title="Centered Modal" id="centeredModal" :is-center="true" @submit="submit">
+    <BaseModal title="Centered Modal" id="centeredModal" :is-center="true" @submit="submit">
       <p>Modal body goes here.</p>
-    </Modal>
+    </BaseModal>
 
-    <Modal title="Without Animation Modal" id="withoutAnimationModal" :with-fade="false" @submit="submit">
+    <BaseModal title="Without Animation Modal" id="withoutAnimationModal" :with-fade="false" @submit="submit">
       <p>Modal body goes here.</p>
-    </Modal>
+    </BaseModal>
 
-    <Modal title="Sized Modal" id="sizedModal" size="lg" @submit="submit">
+    <BaseModal title="Sized Modal" id="sizedModal" size="lg" @submit="submit">
       <p>Modal body goes here.</p>
-    </Modal>
+    </BaseModal>
 
-    <Modal title="Custom Naming Modal" id="customNamingModal" submitText="Save" closeText="Exit" @submit="submit">
+    <BaseModal title="Custom Naming Modal" id="customNamingModal" submitText="Save" closeText="Exit" @submit="submit">
       <p>Modal body goes here.</p>
-    </Modal>
+    </BaseModal>
 
-    <Modal id="customTemplateModal">
+    <BaseModal id="customTemplateModal">
       <template #header>
         <b><i>Custom Template</i></b>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -79,7 +79,7 @@
         <button type="button" class="btn btn-warning" @click="submit">Update</button>
         <button type="button" class="btn btn-danger">Delete</button>
       </template>
-    </Modal>
+    </BaseModal>
   </Teleport>
 </template>
 
@@ -87,7 +87,7 @@
 import PageDescription from "@components/admin/layout/Page/PageDescription.vue";
 import PageSection from "@components/admin/layout/Page/PageSection.vue";
 import PageTitle from "@components/admin/layout/Page/PageTitle.vue";
-import Modal from "@components/ui/Modal/Modal.vue";
+import BaseModal from "@components/ui/Modal/BaseModal.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 
 function submit() {
