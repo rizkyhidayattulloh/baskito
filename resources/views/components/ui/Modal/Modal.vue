@@ -1,6 +1,6 @@
 <template>
   <div class="modal" :class="{'fade': withFade}" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog" :class="{'modal-dialog-centered': isCenter, [modalSizeClass]: modalSizeClass ? true : false}" role="document">
+    <div class="modal-dialog" :class="{'modal-dialog-centered': isCenter, [modalSizeClass]: true}" role="document">
       <div class="modal-content">
         <div class="modal-header" v-if="$slots.header">
           <slot name="header"></slot>
@@ -30,6 +30,16 @@
 
 <script setup lang="ts">
   import { computed } from 'vue'
+  
+  type ModalSize = "default" | "sm" | "lg";
+
+  const sizes = {
+    default: "",
+    sm: "modal-sm",
+    lg: "modal-lg"
+  };
+
+  const getClassSize = (size: ModalSize) => sizes[size];
 
   const props = withDefaults(
     defineProps<{
@@ -38,19 +48,17 @@
       submitText?: string
       isCenter?: boolean
       withFade?: boolean
-      size?: string
+      size?: ModalSize
     }>(), {
       closeText: () => "Close",
       submitText: () => "Save Changes",
       isCenter: () => false,
       withFade: () => true,
+      size: () => "default",
     }
   );
 
   const modalSizeClass = computed(() => {
-    if (props.size) {
-      return `modal-${props.size}`;
-    }
-    return '';
+    return getClassSize(props.size);
   })
 </script>
