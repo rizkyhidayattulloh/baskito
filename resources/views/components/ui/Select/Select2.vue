@@ -6,13 +6,14 @@
 
 <script setup lang="ts">
   import { ref, onMounted, onUnmounted, watch } from 'vue';
+  import { Options } from 'select2';
 
   type SelectValue = string | number | string[] | null;
 
   const props = withDefaults(
     defineProps<{
       modelValue?: SelectValue
-      options?: object,
+      options?: Options,
       allowEmpty?: boolean
     }>(), {
       modelValue: () => null,
@@ -34,7 +35,7 @@
   watch(
     () => props.modelValue,
     (modelValue) => {
-      $(root.value).val(modelValue).trigger("change");
+      $(root.value).val(modelValue ?? '').trigger("change");
     }
   );
 
@@ -60,6 +61,7 @@
           if (Array.isArray(value)) {
             // Helping CSS to know if multiple select is filled with options
             const container = $(root.value).data('select2').$container;
+
             if (value.length) {
               container.find('.select2-selection--multiple').addClass('select2-selection--filled'); 
             } else {
@@ -68,12 +70,16 @@
           }
       });
 
-    let value = props.modelValue;
+    // Get default value from modelValue prop
+    let value = props.modelValue ?? '';
 
-    if (! props.allowEmpty && value == null) {
-      value = select2.val();
+    // If not allowed for empty option and modelValue prop not properly provided
+    if (! props.allowEmpty && ! value) {
+        // Get first option from select2
+        value = select2.val() ?? '';
     }
 
+    // Set default value for select2
     select2.val(value).trigger("change");
   };
 
