@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" :class="{'fade': withFade}" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+  <div :id="id" class="modal" :class="{'fade': withFade}" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
     <div class="modal-dialog" :class="modalDialogClass" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -39,8 +39,16 @@
 
   const getClassSize = (size: ModalSize) => sizes[size];
 
+  const emit = defineEmits<{
+    (e: 'show', value: JQuery.Event): void
+    (e: 'shown', value: JQuery.Event): void
+    (e: 'hide', value: JQuery.Event): void
+    (e: 'hidden', value: JQuery.Event): void
+  }>()
+
   const props = withDefaults(
     defineProps<{
+      id: string
       title?: string
       closeText?: string
       submitText?: string
@@ -55,6 +63,16 @@
       size: () => "md",
     }
   );
+
+  $('body').on('show.bs.modal', `#${props.id}`, function (event: JQuery.Event) {
+      emit('show', event);
+  }).on('shown.bs.modal', `#${props.id}`, function (event: JQuery.Event) {
+      emit('shown', event);
+  }).on('hide.bs.modal', `#${props.id}`, function (event: JQuery.Event) {
+      emit('hide', event);
+  }).on('hidden.bs.modal', `#${props.id}`, function (event: JQuery.Event) {
+      emit('hidden', event);
+  });
 
   const modalDialogClass = computed(() => [
     {

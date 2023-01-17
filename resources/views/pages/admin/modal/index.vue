@@ -43,7 +43,12 @@
   </PageSection>
   
   <Teleport to="body">
-    <BaseModal title="Default Modal" id="defaultModal" @submit="submit">
+    <BaseModal title="Default Modal" id="defaultModal" 
+      @submit="submit" 
+      @show="event => show(event)" 
+      @shown="shown" 
+      @hide="hide" 
+      @hidden="hidden">
       <p>Modal body goes here.</p>
     </BaseModal>
 
@@ -92,6 +97,23 @@ import { Head } from "@inertiajs/inertia-vue3";
 
 function submit() {
   console.log('submitted');
+}
+
+function show(event: JQuery.Event) {
+  console.log('show');
+  console.log(event);
+}
+
+function shown() {
+  console.log('shown');
+}
+
+function hide() {
+  console.log('hide');
+}
+
+function hidden() {
+  console.log('hidden');
 }
 </script>
 <style scoped></style>
