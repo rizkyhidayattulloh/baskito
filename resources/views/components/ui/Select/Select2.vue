@@ -30,12 +30,14 @@
 
   onUnmounted(destroySelect2);
 
-  const root = <any> ref(null);
+  const root = ref<HTMLInputElement | null>(null);
 
   watch(
     () => props.modelValue,
     (modelValue) => {
-      $(root.value).val(modelValue ?? '').trigger("change");
+      if (root.value) {
+        $(root.value).val(modelValue ?? '').trigger("change");
+      }
     }
   );
 
@@ -44,7 +46,9 @@
     (options) => {
       destroySelect2();
       if (options.hasOwnProperty('data')) {
-         $(root.value).empty();
+        if (root.value) {
+          $(root.value).empty();
+        }
       }
       createSelect2();
     },
@@ -52,39 +56,45 @@
   );
 
   function createSelect2() {
-    const select2 = $(root.value)
-      .select2(props.options)
-      .on("change", function() {
-          const value = $(this).val();
-          emit('update:modelValue', value);
+    if (root.value) {
+      const select2 = $(root.value)
+        .select2(props.options)
+        .on("change", function() {
+            const value = $(this).val();
+            emit('update:modelValue', value);
 
-          if (Array.isArray(value)) {
-            // Helping CSS to know if multiple select is filled with options
-            const container = $(root.value).data('select2').$container;
+            if (Array.isArray(value)) {
+              // Helping CSS to know if multiple select is filled with options
+              if (root.value) {
+                const container = $(root.value).data('select2').$container;
 
-            if (value.length) {
-              container.find('.select2-selection--multiple').addClass('select2-selection--filled'); 
-            } else {
-              container.find('.select2-selection--multiple').removeClass('select2-selection--filled');
+                if (value.length) {
+                  container.find('.select2-selection--multiple').addClass('select2-selection--filled'); 
+                } else {
+                  container.find('.select2-selection--multiple').removeClass('select2-selection--filled');
+                }
+              }
             }
-          }
-      });
+        });
 
-    // Get default value from modelValue prop
-    let value = props.modelValue ?? '';
+      // Get default value from modelValue prop
+      let value = props.modelValue ?? '';
 
-    // If not allowed for empty option and modelValue prop not properly provided
-    if (! props.allowEmpty && ! value) {
-        // Get first option from select2
-        value = select2.val() ?? '';
+      // If not allowed for empty option and modelValue prop not properly provided
+      if (! props.allowEmpty && ! value) {
+          // Get first option from select2
+          value = select2.val() ?? '';
+      }
+
+      // Set default value for select2
+      select2.val(value).trigger("change");
     }
-
-    // Set default value for select2
-    select2.val(value).trigger("change");
   };
 
   function destroySelect2() {
-    $(root.value).off().select2('destroy');
+    if (root.value) {
+      $(root.value).off().select2('destroy');
+    }
   };
 </script>
 
