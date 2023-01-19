@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <nav v-if="links.length > 3">
     <ul class="pagination">
@@ -8,9 +9,7 @@
         :class="{ active: link.active, disabled: link.url === null }"
       >
         <Link class="page-link" :href="link.url ?? '#'">
-          <!-- eslint-disable vue/no-v-html -->
           <span v-html="link.label" />
-          <!--eslint-enable-->
         </Link>
       </li>
     </ul>
