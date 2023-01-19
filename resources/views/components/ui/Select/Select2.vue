@@ -97,37 +97,3 @@
     }
   };
 </script>
-
-<style>
-/* Update select2 multiple remove button style */
-.select2-selection__choice__display {
-  padding-right: 15px !important;
-}
-.select2-selection__choice__remove {
-  left: auto !important;
-  right: 0 !important;
-  border-right: 0 !important;
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
-}
-.select2-selection__choice__remove:hover, .select2-selection__choice__remove:focus {
-  background-color: initial !important;
-}
-
-/* Update select2 multiple search height */
-.select2-selection--multiple.select2-selection--filled .select2-search__field {
-  height: 25px !important;
-}
-
-/* Update select2 multiple tag padding */
-.select2-selection--multiple.select2-selection--filled .select2-selection__rendered {
-  padding-left: 0px !important;
-}
-
-/* Fix select2 single select clear button padding */
-.select2-selection.select2-selection--single {
-  padding-right: 17px !important;
-}
-</style>
