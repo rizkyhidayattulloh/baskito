@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import type { PaginationLink } from "@/scripts/types/ui";
+import { PaginationLink } from "@/scripts/types/ui";
 import { Link } from "@inertiajs/inertia-vue3";
 
 defineProps<{
