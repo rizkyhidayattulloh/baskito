@@ -22,26 +22,27 @@ const props = withDefaults(
     size?: ButtonSize;
     shape?: ButtonShape;
     disabled?: boolean;
+    progress?: boolean;
   }>(),
   {
     variant: "primary",
     block: false,
-    size: "default",
+    size: "md",
     shape: "default",
-    disabled: false
+    disabled: false,
+    progress: false
   }
 );
 
 const buttonClass = computed(() => [
-  "btn",
+  {
+    btn: true,
+    disabled: props.disabled,
+    "btn-block": props.block,
+    "btn-progress": props.progress
+  },
   getClassVariant(props.variant),
   getClassSize(props.size),
-  getClassShape(props.shape),
-  {
-    "btn-block": props.block
-  },
-  {
-    disabled: props.disabled
-  }
+  getClassShape(props.shape)
 ]);
 </script>

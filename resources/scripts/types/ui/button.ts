@@ -14,6 +14,6 @@ export type ButtonVariants =
   | "outline-light"
   | "outline-dark";
 
-export type ButtonSize = "default" | "sm" | "lg";
+export type ButtonSize = "sm" | "md" | "lg";
 
 export type ButtonShape = "default" | "pill" | "square";
