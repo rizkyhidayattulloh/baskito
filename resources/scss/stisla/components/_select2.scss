@@ -91,3 +91,31 @@
 .select2-results__option {
   padding-right: 10px 15px;
 }
+
+.select2-selection__choice__display {
+  padding-right: 15px !important;
+}
+.select2-selection__choice__remove {
+  left: auto !important;
+  right: 0 !important;
+  border-right: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+.select2-selection__choice__remove:hover, .select2-selection__choice__remove:focus {
+  background-color: initial !important;
+}
+
+.select2-selection--multiple.select2-selection--filled .select2-search__field {
+  height: 25px !important;
+}
+
+.select2-selection--multiple.select2-selection--filled .select2-selection__rendered {
+  padding-left: 0px !important;
+}
+
+.select2-selection.select2-selection--single {
+  padding-right: 17px !important;
+}

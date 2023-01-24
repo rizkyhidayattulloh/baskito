@@ -16,7 +16,8 @@
             "vite/client",
             "jquery",
             "bootstrap",
-            "jquery.nicescroll"
+            "jquery.nicescroll",
+            "select2"
         ],
         "baseUrl": ".",
         "paths": {

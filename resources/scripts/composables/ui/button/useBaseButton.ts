@@ -19,8 +19,8 @@ export function useBaseButton() {
   };
 
   const sizes = {
-    default: "",
     sm: "btn-sm",
+    md: "",
     lg: "btn-lg"
   };
 

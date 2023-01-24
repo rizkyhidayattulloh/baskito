@@ -17,3 +17,11 @@ Route::delete('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/', function () {
     return inertia('admin.dashboard.index');
 })->name('dashboard');
+
+Route::get('select2', function () {
+    return inertia('admin.select2.index');
+})->name('select2');
+
+Route::get('modal', function () {
+    return inertia('admin.modal.index');
+})->name('modal');
