@@ -34,21 +34,22 @@
         >
           Modal
         </SideBarLink>
+        <SideBarLink
+          icon="fas fa-table"
+          :href="$route('admin.pagination')"
+          :active="routeIs('admin.pagination')"
+        >
+          Pagination
+        </SideBarLink>
         <SideBarDropdown
           title="Other Page"
           icon="fas fa-columns"
           :active="false"
         >
-          <SideBarLink
-            :href="$route('admin.login')"
-            :active="false"
-          >
+          <SideBarLink :href="$route('admin.login')" :active="false">
             Login Page
           </SideBarLink>
-          <SideBarLink
-            :href="$route('admin.login-2')"
-            :active="false"
-          >
+          <SideBarLink :href="$route('admin.login-2')" :active="false">
             Login Page 2
           </SideBarLink>
         </SideBarDropdown>
