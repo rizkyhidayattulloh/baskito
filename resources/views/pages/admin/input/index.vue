@@ -4,7 +4,21 @@
   <PageSection header="Dashboard Page" :back-link="$route('admin.dashboard')">
     <PageTitle>Input</PageTitle>
     <PageDescription>Description for the page.</PageDescription>
-    <InputBase v-model="name" type="text" size="sm"></InputBase>
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h4>Input</h4>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <p class="mb-2">Label Name</p>
+              <InputBase v-model="name" type="text"></InputBase>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </PageSection>
 </template>
 

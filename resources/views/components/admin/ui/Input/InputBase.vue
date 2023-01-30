@@ -10,22 +10,38 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-type InputType = "button" | "checkbox" | "text";
+import { computed } from "vue";
 
 type InputSize = "sm" | "md" | "lg";
+type InputType =
+  | "button"
+  | "checkbox"
+  | "text"
+  | "number"
+  | "date"
+  | "email"
+  | "hidden"
+  | "file"
+  | "password"
+  | "range"
+  | "reset"
+  | "submit"
+  | "tel"
+  | "time"
+  | "url"
+  | "week";
 
 const sizes = {
   sm: "form-control form-control-sm",
   md: "form-control",
   lg: "form-control form-control-lg",
-}
+};
 
 const getClassSize = (size: InputSize) => sizes[size];
 
 interface Props {
   type?: InputType;
-  size?:  InputSize,
+  size?: InputSize;
   modelValue?: string;
   placeholder?: string;
 }
