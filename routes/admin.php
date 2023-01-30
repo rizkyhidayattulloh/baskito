@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Route;
 
 Route::get('login', function () {
@@ -25,3 +26,15 @@ Route::get('select2', function () {
 Route::get('modal', function () {
     return inertia('admin.modal.index');
 })->name('modal');
+
+Route::get('pagination', function () {
+    $users = \App\Models\User::paginate(1);
+
+    $collections = UserResource::collection($users);
+
+    return inertia('admin.pagination.index', compact('users', 'collections'));
+})->name('pagination');
+
+Route::get('sweet-alert', function() {
+    return inertia('admin.sweet-alert.index');
+})->name('sweet-alert');
