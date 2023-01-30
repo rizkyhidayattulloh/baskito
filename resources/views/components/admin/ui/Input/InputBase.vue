@@ -3,28 +3,38 @@
     class="form-control"
     :value="modelValue"
     :type="type"
-    :class="`form-control ${classInput}`"
+    :class="inputClass"
     :placeholder="placeholder"
     @input="emitInput"
   />
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 type InputType = "button" | "checkbox" | "text";
-type InputClass = "form-control-sm" | "form-control-lg"; //pecah to array size sm/lg
+
+type InputSize = "sm" | "md" | "lg";
+
+const sizes = {
+  sm: "form-control form-control-sm",
+  md: "form-control",
+  lg: "form-control form-control-lg",
+}
+
+const getClassSize = (size: InputSize) => sizes[size];
 
 interface Props {
   type?: InputType;
-  classInput?:  InputClass | null,
+  size?:  InputSize,
   modelValue?: string;
   placeholder?: string;
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   type: "text",
   modelValue: "",
   placeholder: "",
-  classInput: null,
+  size: "md",
 });
 
 const emit = defineEmits<{
@@ -34,4 +44,6 @@ const emit = defineEmits<{
 const emitInput = (event: Event) => {
   emit("update:modelValue", (event.target as HTMLInputElement).value);
 };
+
+const inputClass = computed(() => [getClassSize(props.size)]);
 </script>
