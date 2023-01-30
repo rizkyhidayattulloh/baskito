@@ -41,6 +41,13 @@
         >
           Pagination
         </SideBarLink>
+        <SideBarLink
+          icon="fas fa-bell"
+          :href="$route('admin.sweet-alert')"
+          :active="routeIs('admin.sweet-alert')"
+        >
+          Sweet Alert
+        </SideBarLink>
         <SideBarDropdown
           title="Other Page"
           icon="fas fa-columns"

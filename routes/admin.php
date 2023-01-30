@@ -34,3 +34,7 @@ Route::get('pagination', function () {
 
     return inertia('admin.pagination.index', compact('users', 'collections'));
 })->name('pagination');
+
+Route::get('sweet-alert', function() {
+    return inertia('admin.sweet-alert.index');
+})->name('sweet-alert');
