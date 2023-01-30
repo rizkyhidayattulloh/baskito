@@ -48,6 +48,13 @@
         >
           Sweet Alert
         </SideBarLink>
+        <SideBarLink
+          icon="fas fa-box"
+          :href="$route('admin.input')"
+          :active="routeIs('admin.input')"
+        >
+          Input
+        </SideBarLink>
         <SideBarDropdown
           title="Other Page"
           icon="fas fa-columns"

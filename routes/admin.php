@@ -19,6 +19,10 @@ Route::get('/', function () {
     return inertia('admin.dashboard.index');
 })->name('dashboard');
 
+Route::get('/input', function () {
+    return inertia('admin.input.index');
+})->name('input');
+
 Route::get('select2', function () {
     return inertia('admin.select2.index');
 })->name('select2');
