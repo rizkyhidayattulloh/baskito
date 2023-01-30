@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
   import { ref, onMounted, onUnmounted, watch } from 'vue';
-  import { Options } from 'select2';
+  import type { Options } from 'select2';
 
   type SelectValue = string | number | string[] | null;
 
