@@ -14,64 +14,124 @@
           <div class="card-body">
             <div class="form-group">
               <p class="mb-2">Default Modal</p>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#defaultModal">Show Default Modal</button>
+              <button
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#defaultModal"
+              >
+                Show Default Modal
+              </button>
             </div>
             <div class="form-group">
               <p class="mb-2">Centered Modal</p>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#centeredModal">Show Centered Modal</button>
+              <button
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#centeredModal"
+              >
+                Show Centered Modal
+              </button>
             </div>
             <div class="form-group">
               <p class="mb-2">Without Animation Modal</p>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#withoutAnimationModal">Show Without Animation Modal</button>
+              <button
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#withoutAnimationModal"
+              >
+                Show Without Animation Modal
+              </button>
             </div>
             <div class="form-group">
               <p class="mb-2">Sized Modal</p>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#sizedModal">Show Sized Modal</button>
+              <button
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#sizedModal"
+              >
+                Show Sized Modal
+              </button>
             </div>
             <div class="form-group">
               <p class="mb-2">Custom Naming Modal</p>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#customNamingModal">Show Custom Naming Modal</button>
+              <button
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#customNamingModal"
+              >
+                Show Custom Naming Modal
+              </button>
             </div>
             <div class="form-group">
               <p class="mb-2">Custom Template Modal</p>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#customTemplateModal">Show Custom Template Modal</button>
+              <button
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#customTemplateModal"
+              >
+                Show Custom Template Modal
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </PageSection>
-  
+
   <Teleport to="body">
-    <BaseModal title="Default Modal" id="defaultModal" 
-      @submit="submit" 
-      @show="event => show(event)" 
-      @shown="shown" 
-      @hide="hide" 
-      @hidden="hidden">
+    <BaseModal
+      id="defaultModal"
+      title="Default Modal"
+      @submit="submit"
+      @show="(event) => show(event)"
+      @shown="shown"
+      @hide="hide"
+      @hidden="hidden"
+    >
       <p>Modal body goes here.</p>
     </BaseModal>
 
-    <BaseModal title="Centered Modal" id="centeredModal" :is-center="true" @submit="submit">
+    <BaseModal
+      id="centeredModal"
+      title="Centered Modal"
+      :is-center="true"
+      @submit="submit"
+    >
       <p>Modal body goes here.</p>
     </BaseModal>
 
-    <BaseModal title="Without Animation Modal" id="withoutAnimationModal" :with-fade="false" @submit="submit">
+    <BaseModal
+      id="withoutAnimationModal"
+      title="Without Animation Modal"
+      :with-fade="false"
+      @submit="submit"
+    >
       <p>Modal body goes here.</p>
     </BaseModal>
 
-    <BaseModal title="Sized Modal" id="sizedModal" size="lg" @submit="submit">
+    <BaseModal id="sizedModal" title="Sized Modal" size="lg" @submit="submit">
       <p>Modal body goes here.</p>
     </BaseModal>
 
-    <BaseModal title="Custom Naming Modal" id="customNamingModal" submitText="Save" closeText="Exit" @submit="submit">
+    <BaseModal
+      id="customNamingModal"
+      title="Custom Naming Modal"
+      submit-text="Save"
+      close-text="Exit"
+      @submit="submit"
+    >
       <p>Modal body goes here.</p>
     </BaseModal>
 
     <BaseModal id="customTemplateModal">
       <template #header>
         <b><i>Custom Template</i></b>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">×</span>
         </button>
       </template>
@@ -81,7 +141,9 @@
       </template>
 
       <template #footer>
-        <button type="button" class="btn btn-warning" @click="submit">Update</button>
+        <button type="button" class="btn btn-warning" @click="submit">
+          Update
+        </button>
         <button type="button" class="btn btn-danger">Delete</button>
       </template>
     </BaseModal>
@@ -92,28 +154,28 @@
 import PageDescription from "@components/admin/layout/Page/PageDescription.vue";
 import PageSection from "@components/admin/layout/Page/PageSection.vue";
 import PageTitle from "@components/admin/layout/Page/PageTitle.vue";
-import BaseModal from "@components/ui/Modal/BaseModal.vue";
+import BaseModal from "@components/admin/ui/Modal/BaseModal.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 
 function submit() {
-  console.log('submitted');
+  console.log("submitted");
 }
 
 function show(event: JQuery.Event) {
-  console.log('show');
+  console.log("show");
   console.log(event);
 }
 
 function shown() {
-  console.log('shown');
+  console.log("shown");
 }
 
 function hide() {
-  console.log('hide');
+  console.log("hide");
 }
 
 function hidden() {
-  console.log('hidden');
+  console.log("hidden");
 }
 </script>
 <style scoped></style>

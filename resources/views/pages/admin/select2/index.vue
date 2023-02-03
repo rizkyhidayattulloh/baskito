@@ -14,29 +14,29 @@
           <div class="card-body">
             <div class="form-group">
               <label>Default select</label>
-              <Select2 :data-placeholder="'This is placeholder'" v-model="selectDefault">
-                <option v-for="option in options" :value="option.id" v-bind:key="option.id">{{ option.text }}</option>
+              <Select2 v-model="selectDefault" :data-placeholder="'This is placeholder'">
+                <option v-for="option in options" :key="option.id" :value="option.id">{{ option.text }}</option>
               </Select2>
             </div>
             <div class="form-group">
               <label>Select using option property</label>
-              <Select2 :options="{
+              <Select2
+                :options="{
                   data: options,
                   placeholder: 'This is placeholder',
                   allowClear: true
                 }"
-                :allow-empty="true">
-              </Select2>
+                allow-empty />
             </div>
             <div class="form-group">
               <label>Select multiple</label>
-              <Select2 :options="{
+              <Select2
+                :options="{
                   data: options,
                   placeholder: 'This is placeholder',
                   allowClear: true
                 }"
-                multiple>
-              </Select2>
+                multiple />
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@
 import PageDescription from "@components/admin/layout/Page/PageDescription.vue";
 import PageSection from "@components/admin/layout/Page/PageSection.vue";
 import PageTitle from "@components/admin/layout/Page/PageTitle.vue";
-import Select2 from "@components/ui/Select/Select2.vue";
+import Select2 from "@components/admin/ui/Select/Select2.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { ref, watch } from 'vue';
 
