@@ -1,7 +1,7 @@
 <template layout="admin">
   <Head title="Modal" />
 
-  <PageSection header="Modal Page" :back-link="$route('admin.modal')">
+  <PageSection header="Modal Page" :back-link="$route('admin.dashboard')">
     <PageTitle>Modal</PageTitle>
     <PageDescription>Modal component usage example.</PageDescription>
 
