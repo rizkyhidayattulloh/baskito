@@ -35,7 +35,7 @@
         <SideBarDropdown
           title="Components"
           icon="fas fa-columns"
-          :active="false"
+          :active="routeIs('admin.component.*')"
         >
           <SideBarLink
             :href="$route('admin.component.select2')"
