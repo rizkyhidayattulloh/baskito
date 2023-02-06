@@ -20,41 +20,6 @@
         >
           Dashboard
         </SideBarLink>
-        <SideBarLink
-          icon="fas fa-list"
-          :href="$route('admin.select2')"
-          :active="routeIs('admin.select2')"
-        >
-          Select2
-        </SideBarLink>
-        <SideBarLink
-          icon="fas fa-window-maximize"
-          :href="$route('admin.modal')"
-          :active="routeIs('admin.modal')"
-        >
-          Modal
-        </SideBarLink>
-        <SideBarLink
-          icon="fas fa-table"
-          :href="$route('admin.pagination')"
-          :active="routeIs('admin.pagination')"
-        >
-          Pagination
-        </SideBarLink>
-        <SideBarLink
-          icon="fas fa-bell"
-          :href="$route('admin.sweet-alert')"
-          :active="routeIs('admin.sweet-alert')"
-        >
-          Sweet Alert
-        </SideBarLink>
-        <SideBarLink
-          icon="fas fa-box"
-          :href="$route('admin.input')"
-          :active="routeIs('admin.input')"
-        >
-          Input
-        </SideBarLink>
         <SideBarDropdown
           title="Other Page"
           icon="fas fa-columns"
@@ -65,6 +30,42 @@
           </SideBarLink>
           <SideBarLink :href="$route('admin.login-2')" :active="false">
             Login Page 2
+          </SideBarLink>
+        </SideBarDropdown>
+        <SideBarDropdown
+          title="Components"
+          icon="fas fa-columns"
+          :active="routeIs('admin.component.*')"
+        >
+          <SideBarLink
+            :href="$route('admin.component.select2')"
+            :active="routeIs('admin.component.select2')"
+          >
+            Select2
+          </SideBarLink>
+          <SideBarLink
+            :href="$route('admin.component.modal')"
+            :active="routeIs('admin.component.modal')"
+          >
+            Modal
+          </SideBarLink>
+          <SideBarLink
+            :href="$route('admin.component.pagination')"
+            :active="routeIs('admin.component.pagination')"
+          >
+            Pagination
+          </SideBarLink>
+          <SideBarLink
+            :href="$route('admin.component.sweet-alert')"
+            :active="routeIs('admin.component.sweet-alert')"
+          >
+            Sweet Alert
+          </SideBarLink>
+          <SideBarLink
+            :href="$route('admin.component.input')"
+            :active="routeIs('admin.component.input')"
+          >
+            Input
           </SideBarLink>
         </SideBarDropdown>
       </ul>
