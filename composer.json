@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "timedoor/baskito",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "Laravel Starter Kit with InertiaJS and Vue 3",
+    "keywords": ["framework", "laravel", "inertiajs", "baskito"],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
@@ -65,6 +65,6 @@
             "pestphp/pest-plugin": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
