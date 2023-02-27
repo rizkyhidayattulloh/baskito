@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
@@ -61,6 +62,10 @@ class Handler extends ExceptionHandler
     {
         $response = parent::renderExceptionResponse($request, $e);
 
+        if ($request->wantsJson() && ! $request->header('X-Inertia')) {
+            return $response;
+        }
+
         if (! $request->is('api/*')) {
             return $this->inertiaRender($request, $e) ?: $response;
         }
@@ -92,7 +97,7 @@ class Handler extends ExceptionHandler
         }
 
         if (in_array($e->getStatusCode(), [500, 503, 404, 403])) {
-            return inertia('admin.error', [
+            return Inertia::render('admin.error', [
                 'status' => $e->getStatusCode(),
             ])->toResponse($request)->setStatusCode($e->getStatusCode());
         }
