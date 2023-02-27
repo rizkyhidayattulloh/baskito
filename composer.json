@@ -43,6 +43,9 @@
         "phpstan": [
             "./vendor/bin/phpstan analyse"
         ],
+        "pint": [
+            "./vendor/bin/pint"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -58,7 +61,8 @@
         ]
     },
     "scripts-descriptions": {
-        "phpstan": "Run PHPStan static analysis against your application."
+        "phpstan": "Run PHPStan static analysis against your application.",
+        "pint": "Run Pint static analysis against your application."
       },
     "extra": {
         "laravel": {
