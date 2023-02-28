@@ -17,11 +17,13 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
+        "barryvdh/laravel-ide-helper": "^2.13",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
+        "nunomaduro/larastan": "^2.4",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ignition": "^1.0"
     },
@@ -38,6 +40,12 @@
         }
     },
     "scripts": {
+        "phpstan": [
+            "./vendor/bin/phpstan analyse"
+        ],
+        "pint": [
+            "./vendor/bin/pint"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -52,6 +60,10 @@
             "@php artisan key:generate --ansi"
         ]
     },
+    "scripts-descriptions": {
+        "phpstan": "Run PHPStan static analysis against your application.",
+        "pint": "Run Pint static analysis against your application."
+      },
     "extra": {
         "laravel": {
             "dont-discover": []
