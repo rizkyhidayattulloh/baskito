@@ -8,7 +8,7 @@
         class="page-item"
         :class="{ active: link.active, disabled: link.url === null }"
       >
-        <Link class="page-link" :href="link.url ?? '#'">
+        <Link class="page-link" :preserve-scroll="preserveScroll" :preserve-state="preserveState" :href="link.url ?? '#'">
           <span v-html="link.label" />
         </Link>
       </li>
@@ -20,7 +20,12 @@
 import { PaginationLink } from "@/scripts/types/ui";
 import { Link } from "@inertiajs/inertia-vue3";
 
-defineProps<{
+withDefaults(defineProps<{
   links: PaginationLink[];
-}>();
+  preserveScroll?: boolean;
+  preserveState?: boolean;
+}>(), {
+  preserveScroll: true,
+  preserveState: true,
+});
 </script>

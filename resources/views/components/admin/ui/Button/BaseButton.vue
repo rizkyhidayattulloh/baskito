@@ -1,6 +1,14 @@
 <template>
-  <button :class="buttonClass" :disabled="props.disabled">
-    <slot></slot>
+  <button :class="buttonClass" :disabled="disabled || loading">
+    <div v-if="loading">
+      <span
+        class="spinner-border spinner-border-sm"
+        role="status"
+        aria-hidden="true"
+      ></span>
+      {{ loadingText }}
+    </div>
+    <slot v-else></slot>
   </button>
 </template>
 
@@ -8,7 +16,7 @@
 import type {
   ButtonSize,
   ButtonVariants,
-  ButtonShape
+  ButtonShape,
 } from "@/scripts/types/ui";
 import { useBaseButton } from "@/scripts/composables/ui/button/useBaseButton";
 import { computed } from "vue";
@@ -23,6 +31,8 @@ const props = withDefaults(
     shape?: ButtonShape;
     disabled?: boolean;
     progress?: boolean;
+    loading?: boolean;
+    loadingText?: string;
   }>(),
   {
     variant: "primary",
@@ -30,19 +40,21 @@ const props = withDefaults(
     size: "md",
     shape: "default",
     disabled: false,
-    progress: false
+    progress: false,
+    loading: false,
+    loadingText: "Loading...",
   }
 );
 
 const buttonClass = computed(() => [
   {
     btn: true,
-    disabled: props.disabled,
+    disabled: props.disabled || props.loading,
     "btn-block": props.block,
-    "btn-progress": props.progress
+    "btn-progress": props.progress,
   },
   getClassVariant(props.variant),
   getClassSize(props.size),
-  getClassShape(props.shape)
+  getClassShape(props.shape),
 ]);
 </script>
