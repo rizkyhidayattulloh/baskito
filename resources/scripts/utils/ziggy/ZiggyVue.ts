@@ -10,7 +10,7 @@ export default {
       params?: RouteParamsWithQueryOverload | RouteParam,
       absolute?: boolean,
       config: Config = options
-    ) => ziggyRoute(name, params, absolute, config);
+    ) => ziggyRoute(name, params, absolute || false, config);
 
     app.config.globalProperties.$route = route as ZiggyRoute;
 
