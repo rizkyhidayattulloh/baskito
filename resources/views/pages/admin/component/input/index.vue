@@ -28,7 +28,7 @@ import PageSection from "@components/admin/layout/Page/PageSection.vue";
 import PageTitle from "@components/admin/layout/Page/PageTitle.vue";
 import InputBase from "@components/admin/ui/Input/InputBase.vue";
 
-import { Head } from "@inertiajs/inertia-vue3";
+import { Head } from "@inertiajs/vue3";
 import { ref } from "vue";
 
 const name = ref("");

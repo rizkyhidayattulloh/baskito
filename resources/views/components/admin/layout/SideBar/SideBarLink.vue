@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 
 defineProps<{
   href: string,

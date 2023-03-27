@@ -1,4 +1,4 @@
-declare module "@inertiajs/inertia" {
+declare module "@inertiajs/core" {
   interface PageProps {
     flash: FlashMessage,
     auth?: AuthProps,
