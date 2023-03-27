@@ -11,7 +11,7 @@
 import PageDescription from "@components/admin/layout/Page/PageDescription.vue";
 import PageSection from "@components/admin/layout/Page/PageSection.vue";
 import PageTitle from "@components/admin/layout/Page/PageTitle.vue";
-import { Head } from "@inertiajs/inertia-vue3";
+import { Head } from "@inertiajs/vue3";
 </script>
 
 <style scoped></style>

@@ -100,7 +100,7 @@
 
 <script setup lang="ts">
 import { useRoute } from '@/scripts/utils/ziggy/useRoute';
-import { Head, useForm } from '@inertiajs/inertia-vue3';
+import { Head, useForm } from '@inertiajs/vue3';
 
 const { route } = useRoute();
 const loginForm = useForm({

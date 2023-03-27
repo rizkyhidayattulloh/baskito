@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 import { inject, watch } from "vue";
 
 const props = withDefaults(

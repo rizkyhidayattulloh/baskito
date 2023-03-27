@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { PaginationLink } from "@/scripts/types/ui";
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 
 withDefaults(defineProps<{
   links: PaginationLink[];

@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { useRoute } from "@/scripts/utils/ziggy/useRoute";
-import { useForm, usePage } from "@inertiajs/inertia-vue3";
+import { useForm, usePage } from "@inertiajs/vue3";
 import { computed } from "vue";
 
 const { route } = useRoute();
@@ -38,7 +38,7 @@ const logout = () => {
   useForm({}).delete(route("admin.logout"));
 };
 
-const user = computed(() => usePage().props.value.auth?.user);
+const user = computed(() => usePage().props.auth?.user);
 const avatar = computed(() => {
   const params = new URLSearchParams({
     name: user.value?.name || "User",

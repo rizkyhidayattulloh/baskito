@@ -12,7 +12,7 @@ import type {
 } from "@/scripts/types/ui";
 import { useBaseButton } from "@/scripts/composables/ui/button/useBaseButton";
 import { computed } from "vue";
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 
 const { getClassVariant, getClassSize, getClassShape } = useBaseButton();
 
