@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "@inertiajs/vue3": "^1.0.2",
+        "@timedoor/baskito-ui": "^0.1.5",
         "axios": "^1.2.1",
         "sweetalert": "^2.1.2",
         "vue": "^3.2.36",
