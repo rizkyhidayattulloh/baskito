@@ -1,4 +1,4 @@
-import "@/scss/stisla.scss";
+import '../../node_modules/@timedoor/baskito-ui/scss/stisla.scss'
 
 import { Ziggy } from "@/scripts/utils/ziggy";
 import ZiggyVue from "@/scripts/utils/ziggy/ZiggyVue";
