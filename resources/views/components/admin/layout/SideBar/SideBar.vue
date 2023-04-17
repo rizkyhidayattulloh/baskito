@@ -79,7 +79,7 @@ import initStisla from "@/scripts/utils/stisla";
 import SideBarLink from "./SideBarLink.vue";
 import SideBarHeader from "./SideBarHeader.vue";
 import SideBarDropdown from "./SideBarDropdown.vue";
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 import { useRoute } from "@/scripts/utils/ziggy/useRoute";
 
 const { routeIs } = useRoute();

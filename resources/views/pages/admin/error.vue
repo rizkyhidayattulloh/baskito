@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { Head } from "@inertiajs/inertia-vue3";
+import { Head } from "@inertiajs/vue3";
 import { computed } from "vue";
 
 const props = defineProps<{

@@ -36,7 +36,7 @@ import PageDescription from "@/views/components/admin/layout/Page/PageDescriptio
 import PageSection from "@/views/components/admin/layout/Page/PageSection.vue";
 import PageTitle from "@/views/components/admin/layout/Page/PageTitle.vue";
 import BasePagination from "@/views/components/admin/ui/Pagination/BasePagination.vue";
-import { Head } from "@inertiajs/inertia-vue3";
+import { Head } from "@inertiajs/vue3";
 
 type Users = {
   links: PaginationLink[];

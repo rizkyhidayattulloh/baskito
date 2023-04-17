@@ -38,7 +38,7 @@ import PageDescription from "@/views/components/admin/layout/Page/PageDescriptio
 import PageSection from "@/views/components/admin/layout/Page/PageSection.vue";
 import PageTitle from "@/views/components/admin/layout/Page/PageTitle.vue";
 import BaseButton from "@/views/components/admin/ui/Button/BaseButton.vue";
-import { Head } from "@inertiajs/inertia-vue3";
+import { Head } from "@inertiajs/vue3";
 
 const {
   successAlert,
