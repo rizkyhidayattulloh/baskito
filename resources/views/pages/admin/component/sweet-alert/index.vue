@@ -12,19 +12,19 @@
             <h4>Sweet Alert</h4>
           </div>
           <div class="card-body">
-            <BaseButton
+            <BKButton
               class="mr-2"
               variant="primary"
               @click="defaultAlert"
             >
               Default
-            </BaseButton>
-            <BaseButton class="mr-2" variant="success" @click="success">
+            </BKButton>
+            <BKButton class="mr-2" variant="success" @click="success">
               Success
-            </BaseButton>
-            <BaseButton class="mr-2" variant="warning" @click="warning">Warning</BaseButton>
-            <BaseButton class="mr-2" variant="danger" @click="error">Error</BaseButton>
-            <BaseButton class="mr-2" variant="info" @click="info">Info</BaseButton>
+            </BKButton>
+            <BKButton class="mr-2" variant="warning" @click="warning">Warning</BKButton>
+            <BKButton class="mr-2" variant="danger" @click="error">Error</BKButton>
+            <BKButton class="mr-2" variant="info" @click="info">Info</BKButton>
           </div>
         </div>
       </div>
@@ -37,8 +37,8 @@ import { useSweetAlert } from "@/scripts/composables/ui/alert/useSweetAlert";
 import PageDescription from "@/views/components/admin/layout/Page/PageDescription.vue";
 import PageSection from "@/views/components/admin/layout/Page/PageSection.vue";
 import PageTitle from "@/views/components/admin/layout/Page/PageTitle.vue";
-import BaseButton from "@/views/components/admin/ui/Button/BaseButton.vue";
 import { Head } from "@inertiajs/vue3";
+import { BKButton } from '@timedoor/baskito-ui';
 
 const {
   successAlert,
