@@ -38,6 +38,12 @@
           :active="routeIs('admin.component.*')"
         >
           <SideBarLink
+            :href="$route('admin.component.alert')"
+            :active="routeIs('admin.component.alert')"
+          >
+            Alert
+          </SideBarLink>
+          <SideBarLink
             :href="$route('admin.component.button')"
             :active="routeIs('admin.component.button')"
           >
