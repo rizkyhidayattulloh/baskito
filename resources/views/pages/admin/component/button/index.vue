@@ -114,7 +114,7 @@
             <h4>Inertia Link</h4>
           </div>
           <div class="card-body">
-            <BKLinkButton :href="$route('admin.dashboard')" >Link to Dashboard</BKLinkButton>
+            <BKLinkButton :href="$route('admin.dashboard')" visit>Link to Dashboard</BKLinkButton>
           </div>
         </div>
       </div>
