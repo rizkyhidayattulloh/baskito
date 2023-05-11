@@ -5,6 +5,10 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('component')->as('component.')->group(function () {
+    Route::get('alert', function () {
+        return inertia('admin.component.alert.index');
+    })->name('alert');
+
     Route::get('button', function() {
         return inertia('admin.component.button.index');
     })->name('button');
