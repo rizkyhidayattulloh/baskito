@@ -52,10 +52,26 @@ class Handler extends ExceptionHandler
     }
 
     /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \Throwable
+     */
+    public function render($request, Throwable $e)
+    {
+        if ($this->permissionException($e)) {
+            abort(403, 'Unauthorized Access.');
+        }
+
+        return parent::render($request, $e);
+    }
+
+    /**
      * Render a default exception response if any.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Throwable  $e
      * @return \Symfony\Component\HttpFoundation\Response
      */
     protected function renderExceptionResponse($request, Throwable $e)
@@ -76,7 +92,6 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \Throwable|\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface  $e
      * @return \Symfony\Component\HttpFoundation\Response|null
      */
@@ -101,5 +116,15 @@ class Handler extends ExceptionHandler
                 'status' => $e->getStatusCode(),
             ])->toResponse($request)->setStatusCode($e->getStatusCode());
         }
+    }
+
+    /**
+     * @return bool
+     */
+    protected function permissionException(Throwable $e)
+    {
+        return $e instanceof \jeremykenedy\LaravelRoles\App\Exceptions\RoleDeniedException ||
+            $e instanceof \jeremykenedy\LaravelRoles\App\Exceptions\PermissionDeniedException ||
+            $e instanceof \jeremykenedy\LaravelRoles\App\Exceptions\LevelDeniedException;
     }
 }
