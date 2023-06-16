@@ -18,4 +18,4 @@ Route::get('/', function () {
     return inertia('admin.dashboard.index');
 })->name('dashboard');
 
-require_once __DIR__ . '/component.php';
+require_once __DIR__.'/component.php';

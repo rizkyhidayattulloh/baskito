@@ -118,6 +118,9 @@ class Handler extends ExceptionHandler
         }
     }
 
+    /**
+     * @return bool
+     */
     protected function permissionException(Throwable $e)
     {
         return $e instanceof \jeremykenedy\LaravelRoles\App\Exceptions\RoleDeniedException ||

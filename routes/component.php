@@ -9,7 +9,7 @@ Route::prefix('component')->as('component.')->group(function () {
         return inertia('admin.component.alert.index');
     })->name('alert');
 
-    Route::get('button', function() {
+    Route::get('button', function () {
         return inertia('admin.component.button.index');
     })->name('button');
 
@@ -33,7 +33,7 @@ Route::prefix('component')->as('component.')->group(function () {
         return inertia('admin.component.pagination.index', compact('users', 'collections'));
     })->name('pagination');
 
-    Route::get('sweet-alert', function() {
+    Route::get('sweet-alert', function () {
         return inertia('admin.component.sweet-alert.index');
     })->name('sweet-alert');
 });
