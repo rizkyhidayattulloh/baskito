@@ -79,6 +79,12 @@
           >
             Input
           </SideBarLink>
+          <SideBarLink
+            :href="$route('admin.component.card')"
+            :active="routeIs('admin.component.card')"
+          >
+            Card
+          </SideBarLink>
         </SideBarDropdown>
       </ul>
     </aside>
