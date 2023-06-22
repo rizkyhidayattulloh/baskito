@@ -79,6 +79,12 @@
           >
             Input
           </SideBarLink>
+          <SideBarLink
+            :href="$route('admin.component.badge')"
+            :active="routeIs('admin.component.badge')"
+          >
+            Badge
+          </SideBarLink>
         </SideBarDropdown>
       </ul>
     </aside>
