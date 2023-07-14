@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -58,6 +59,7 @@ class HandleInertiaRequests extends Middleware
             //         'role' => $user->getRoles()->first()?->getAttribute('slug'),
             //     ];
             // },
+            'breadcrumbs' => fn () => Breadcrumbs::generate(),
         ]);
     }
 }

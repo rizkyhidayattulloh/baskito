@@ -8,6 +8,7 @@
           </Link>
         </div>
         <h1>{{ header }}</h1>
+        <PageBreadcrumb v-if="breadcrumb" :items="breadcrumbs" />
       </slot>
     </div>
 
@@ -18,18 +19,21 @@
 </template>
 
 <script setup lang="ts">
-import { Link } from "@inertiajs/vue3";
-import { inject, watch } from "vue";
+import { Link, usePage } from "@inertiajs/vue3";
+import { computed, inject, watch } from "vue";
+import PageBreadcrumb from "./PageBreadcrumb.vue";
 
 const props = withDefaults(
   defineProps<{
     header: string;
     backLink?: string;
     fullWidth?: boolean;
+    breadcrumb?: boolean;
   }>(),
   {
     backLink: undefined,
     fullWidth: false,
+    breadcrumb: false,
   }
 );
 
@@ -44,6 +48,8 @@ watch(
     immediate: true,
   }
 );
+
+const breadcrumbs = computed(() => usePage().props.breadcrumbs || []);
 </script>
 
 <style scoped></style>

@@ -12,7 +12,7 @@
         </BKCard>
         <BKCard header="Card Action Button">
           This is some text within a card body.
-          <template v-slot:footer>
+          <template #footer>
             <div class="text-right">
               <button class="btn btn-primary">Submit</button>
             </div>
@@ -21,10 +21,10 @@
       </div>
       <div class="col-12 col-md-6 col-lg-6">
         <BKCard footer="Footer Card" footer-bg-variant="whitesmoke">
-          <template v-slot:header>
+          <template #header>
             <h4>Footer <code>bg-whitesmoke</code></h4>
           </template>
-          <template v-slot>
+          <template #default>
             This is some text within a card body.
           </template>
         </BKCard>

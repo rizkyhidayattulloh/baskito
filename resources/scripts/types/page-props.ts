@@ -2,20 +2,26 @@
 
 declare module "@inertiajs/core" {
   interface PageProps {
-    flash: FlashMessage,
-    auth?: AuthProps,
+    flash: FlashMessage;
+    auth?: AuthProps;
+    breadcrumbs?: BreadcrumbItem[];
   }
 }
 
 export type FlashMessage = {
-  message: null | string,
-}
+  message: null | string;
+};
 
 export type AuthProps = {
   user: {
-    id: number,
-    name: string,
-    email: string,
+    id: number;
+    name: string;
+    email: string;
     // role: RoleType,
-  },
+  };
+};
+
+export interface BreadcrumbItem {
+  title: string;
+  url?: string;
 }
