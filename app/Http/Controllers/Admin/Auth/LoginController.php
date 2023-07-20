@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class LoginController extends Controller
 {
@@ -28,6 +30,16 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Inertia\Response
+     */
+    public function showLoginForm()
+    {
+        return Inertia::render('admin.auth.login');
+    }
 
     /**
      * The user has been authenticated.
@@ -58,5 +70,15 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         return to_route('admin.login');
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard();
     }
 }
