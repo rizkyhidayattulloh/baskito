@@ -19,10 +19,9 @@ class UsersTableSeeder extends Seeder
         $newUser = config('roles.models.defaultUser')::firstOrCreate([
             'email' => 'demo@timedoor.net',
         ], [
-            'first_name' => 'Timedoor',
-            'last_name'  => 'Indonesia',
-            'password'   => 'demo123',
-            'owner'      => true,
+            'name'              => 'Timedoor Indonesia',
+            'password'          => 'demo123', // store deault password in .env for real project
+            'email_verified_at' => now(),
         ]);
 
         $newUser->attachRole($adminRole);
