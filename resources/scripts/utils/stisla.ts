@@ -3,8 +3,8 @@ export default function initStisla(
     /**
      * Enable mini sidebar. default: `false`
      */
-    mini: boolean,
-  } = { mini: false }
+    mini: boolean;
+  } = { mini: false },
 ) {
   const sidebar_nicescroll_opts = {
     cursoropacitymin: 0,
@@ -55,7 +55,7 @@ export default function initStisla(
             function () {
               update_sidebar_nicescroll();
               return false;
-            }
+            },
           );
 
           $(".main-sidebar .sidebar-menu li.active").removeClass("active");
@@ -81,19 +81,41 @@ export default function initStisla(
           return false;
         });
 
+      $(
+        ".main-sidebar .sidebar-menu li a.nav-link:not(.dropdown-menu a.nav-link):not(.has-dropdown)",
+      )
+        .off("click")
+        .on("click", function () {
+          const me = $(this);
+
+          $(".main-sidebar .sidebar-menu li.active > .dropdown-menu").slideUp(
+            500,
+            function () {
+              update_sidebar_nicescroll();
+              return false;
+            },
+          );
+
+          $(".main-sidebar .sidebar-menu li.active").removeClass("active");
+
+          me.parent().addClass("active");
+        });
+
       $(".main-sidebar .sidebar-menu li.active > .dropdown-menu").slideDown(
         500,
         function () {
           update_sidebar_nicescroll();
           return false;
-        }
+        },
       );
     }
   };
   sidebar_dropdown();
 
   $(".main-content").css({
-    minHeight: $(window).outerHeight() ? ($(window).outerHeight() as number) - 108 : 0,
+    minHeight: $(window).outerHeight()
+      ? ($(window).outerHeight() as number) - 108
+      : 0,
   });
 
   $(".nav-collapse-toggle").click(function () {
@@ -120,7 +142,7 @@ export default function initStisla(
       $(".main-sidebar .sidebar-menu > li > ul .dropdown-title").remove();
       $(".main-sidebar .sidebar-menu > li > a").removeAttr("data-toggle");
       $(".main-sidebar .sidebar-menu > li > a").removeAttr(
-        "data-original-title"
+        "data-original-title",
       );
       $(".main-sidebar .sidebar-menu > li > a").removeAttr("title");
     } else {
@@ -139,7 +161,9 @@ export default function initStisla(
         if (me.find("> .dropdown-menu").length) {
           me.find("> .dropdown-menu").hide();
           me.find("> .dropdown-menu").prepend(
-            '<li class="dropdown-title pt-3">' + me.find("> a").text() + "</li>"
+            '<li class="dropdown-title pt-3">' +
+              me.find("> a").text() +
+              "</li>",
           );
         } else {
           me.find("> a").attr("data-toggle", "tooltip");
@@ -153,7 +177,7 @@ export default function initStisla(
     }
   };
 
-  $("[data-toggle='sidebar']").on('click', function () {
+  $("[data-toggle='sidebar']").on("click", function () {
     const body = $("body");
     const outerWidth = $(window).outerWidth();
 
@@ -182,10 +206,10 @@ export default function initStisla(
 
   const toggleLayout = function () {
     const outerWidth = $(window).outerWidth();
-    const layout_class = $("body").attr("class") || "";
-    const layout_classes = layout_class.trim().length > 0 ? layout_class.split(" ") : [];
+    const layout_class = ($("body").attr("class") || "").trim();
+    const layout_classes = layout_class.split(" ");
 
-    if (layout_classes.length > 0) {
+    if (layout_class.length > 0 && layout_classes.length > 0) {
       layout_classes.forEach(function (item) {
         if (item.indexOf("layout-") != -1) {
           now_layout_class = item;
@@ -223,7 +247,7 @@ export default function initStisla(
         const nav_second_classes = $(".navbar-secondary").attr("class");
         const nav_second = $(".navbar-secondary");
 
-        nav_second.attr("data-nav-classes", nav_second_classes || '');
+        nav_second.attr("data-nav-classes", nav_second_classes || "");
         nav_second.removeAttr("class");
         nav_second.addClass("main-sidebar");
 
@@ -245,8 +269,8 @@ export default function initStisla(
           }).append(
             $("<a>", {
               href: $(".navbar-brand").attr("href"),
-            }).html($(".navbar-brand").html())
-          )
+            }).html($(".navbar-brand").html()),
+          ),
         );
         setTimeout(function () {
           sidebar_nicescroll = main_sidebar.niceScroll(sidebar_nicescroll_opts);
@@ -270,7 +294,7 @@ export default function initStisla(
         nav_second.find(".sidebar-menu li a.has-dropdown").off("click");
         nav_second.find(".sidebar-brand").remove();
         nav_second.removeAttr("class");
-        nav_second.addClass(nav_second_classes || '');
+        nav_second.addClass(nav_second_classes || "");
 
         const main_sidebar = $(".navbar-secondary");
 
@@ -297,14 +321,19 @@ export default function initStisla(
     }
   };
   toggleLayout();
-  $(window).on('resize', toggleLayout);
+  $(window).on("resize", toggleLayout);
 
   // Set auto mini sidebar
   setTimeout(() => {
     const outerHeight = $(window).outerWidth();
 
-    if (options.mini && outerHeight && outerHeight > 1024 && !$("body").hasClass("sidebar-mini")) {
-      $("[data-toggle='sidebar']").first()?.trigger('click');
+    if (
+      options.mini &&
+      outerHeight &&
+      outerHeight > 1024 &&
+      !$("body").hasClass("sidebar-mini")
+    ) {
+      $("[data-toggle='sidebar']").first()?.trigger("click");
     }
   }, 50);
 
@@ -323,7 +352,7 @@ export default function initStisla(
       $(".dropdown-list-icons").niceScroll({
         cursoropacitymin: 0.3,
         cursoropacitymax: 0.8,
-        cursorwidth: '7',
+        cursorwidth: "7",
       });
     });
 
@@ -334,7 +363,7 @@ export default function initStisla(
       $(".dropdown-list-message").niceScroll({
         cursoropacitymin: 0.3,
         cursoropacitymax: 0.8,
-        cursorwidth: '7',
+        cursorwidth: "7",
       });
     });
 
@@ -382,7 +411,7 @@ export default function initStisla(
     const me = $(this);
     const target = me.data("collapse");
 
-    me.on('click', function () {
+    me.on("click", function () {
       $(target).collapse("toggle");
 
       $(target).on("shown.bs.collapse", function (e) {
@@ -412,12 +441,12 @@ export default function initStisla(
   $("[data-tab]").each(function () {
     const me = $(this);
 
-    me.on('click', function () {
+    me.on("click", function () {
       if (!me.hasClass("active")) {
         const tab_group_active = $(
-          '[data-tab-group="' + me.data("tab") + '"].active'
+          '[data-tab-group="' + me.data("tab") + '"].active',
         );
-        const target = $(me.attr("href") || '');
+        const target = $(me.attr("href") || "");
         const links = $('[data-tab="' + me.data("tab") + '"]');
 
         links.removeClass("active");
@@ -429,7 +458,6 @@ export default function initStisla(
       return false;
     });
   });
-
 
   // alert dismissible
   $(".alert-dismissible").each(function () {
@@ -450,7 +478,7 @@ export default function initStisla(
   });
 
   // Dismiss modal
-  $("[data-dismiss=modal]").on('click', function () {
+  $("[data-dismiss=modal]").on("click", function () {
     $(this).closest(".modal").modal("hide");
 
     return false;
