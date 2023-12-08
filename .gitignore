@@ -8,6 +8,7 @@
 /vendor
 /resources/scripts/utils/ziggy/index.js
 /resources/scripts/utils/ziggy/index.ts
+/resources/scripts/types/ziggy.d.ts
 .env
 .env.backup
 .env.production
