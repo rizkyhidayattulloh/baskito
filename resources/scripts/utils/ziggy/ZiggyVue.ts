@@ -1,19 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { App } from "vue";
-import { default as ziggyRoute, Config, RouteParam, RouteParamsWithQueryOverload } from "ziggy-js";
-import { ZiggyRoute } from "./type";
+import routeFn, { Config, RouteName, RouteParams, Router } from "ziggy-js";
 
 export default {
   install: (app: App, options: Config) => {
-    const route = (
-      name?: any | string | undefined,
-      params?: RouteParamsWithQueryOverload | RouteParam,
+    const r = <T extends RouteName>(
+      name?: any | T,
+      params?: RouteParams<T>,
       absolute?: boolean,
-      config: Config = options
-    ) => ziggyRoute(name, params, absolute || false, config);
+      config?: Config,
+    ): string | Router => {
+      return routeFn(name, params, absolute, config || options);
+    };
 
-    app.config.globalProperties.$route = route as ZiggyRoute;
+    app.config.globalProperties.$route = r as typeof routeFn;
 
-    app.provide('route', route);
+    app.provide("route", r);
   },
 };

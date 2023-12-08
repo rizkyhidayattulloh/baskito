@@ -1,19 +1,18 @@
-import { usePage } from '@inertiajs/vue3';
-import { computed, inject } from 'vue';
-import { RouteParamsWithQueryOverload } from 'ziggy-js';
-import { RouteName, ZiggyRoute } from './type';
+import { usePage } from "@inertiajs/vue3";
+import { computed, inject } from "vue";
+import routeFn, { RouteName, RouteParams } from "ziggy-js";
 
 export function useRoute() {
-  const route = inject('route') as ZiggyRoute;
+  const route = inject("route") as typeof routeFn;
 
   const routeIs = computed<{
-    (name: string): boolean;
-    (name: RouteName): boolean;
-    (name: RouteName, params: RouteParamsWithQueryOverload): boolean;
+    <T extends RouteName>(name: T): boolean;
+    <T extends RouteName>(name: T, params: RouteParams<T>): boolean;
   }>(() => {
     usePage().url;
 
-    return (name: string, params?: RouteParamsWithQueryOverload) => route().current(name, params);
+    return <T extends RouteName>(name: T, params?: RouteParams<T>) =>
+      route().current(name, params);
   });
 
   return { route, routeIs };
