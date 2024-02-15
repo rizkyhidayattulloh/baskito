@@ -17,6 +17,9 @@ class TypeGenerator extends Command
 
     protected $description = 'Generate a TypeScript declaration file for Ziggy’s routes and configuration.';
 
+    /**
+     * @var \Illuminate\Filesystem\Filesystem
+     */
     protected $files;
 
     public function __construct(Filesystem $files)
@@ -26,27 +29,58 @@ class TypeGenerator extends Command
         $this->files = $files;
     }
 
+    /**
+     * @return void
+     */
     public function handle()
     {
         $ziggy = new Ziggy($this->option('group'), $this->option('url') ? url($this->option('url')) : null);
 
-        $this->makeDirectory(
-            $path = $this->argument('path') ?? config('ziggy.output.path', 'resources/js/ziggy.js')
+        $this->makeDirectory($path = $this->getPath());
+
+        $types = $this->getTypeClass();
+
+        $this->files->put(
+            base_path(Str::replaceLast('.js', '.d.ts', $path)),
+            new $types($ziggy)
         );
-
-        $types = config('ziggy.output.types', Types::class);
-
-        $this->files->put(base_path(Str::replaceLast('.js', '.d.ts', $path)), new $types($ziggy));
 
         $this->info('Files generated!');
     }
 
-    protected function makeDirectory($path)
+    protected function makeDirectory(string $path): string
     {
         if (! $this->files->isDirectory(dirname(base_path($path)))) {
             $this->files->makeDirectory(dirname(base_path($path)), 0755, true, true);
         }
 
         return $path;
+    }
+
+    protected function getPath(): string
+    {
+        $path = $this->argument('path') ?? config('ziggy.output.path', 'resources/js/ziggy.js');
+
+        if (! is_string($path)) {
+            throw new \InvalidArgumentException('The path must be a string.');
+        }
+
+        return $path;
+    }
+
+    /**
+     * @return class-string<\Tightenco\Ziggy\Output\Types>
+     */
+    protected function getTypeClass()
+    {
+        $type = config('ziggy.output.types', Types::class);
+
+        if (is_string($type) && ($type === Types::class || is_subclass_of($type, Types::class))) {
+            return $type;
+        }
+
+        throw new \InvalidArgumentException(
+            'The output type class must be a Tightenco\Ziggy\Output\Types class or extend it.'
+        );
     }
 }
