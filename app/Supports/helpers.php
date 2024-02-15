@@ -4,7 +4,7 @@ if (! function_exists('auth_user')) {
     /**
      * Get user model from auth.
      *
-     * @return \App\Models\User
+     * @return \App\Modules\User\Models\User
      *
      * @throws \Illuminate\Auth\AuthenticationException
      */
@@ -12,7 +12,7 @@ if (! function_exists('auth_user')) {
     {
         $user = auth()->user();
 
-        if (! $user instanceof \App\Models\User) {
+        if (! $user instanceof \App\Modules\User\Models\User) {
             throw new \Illuminate\Auth\AuthenticationException();
         }
 
